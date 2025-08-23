@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
 import { AnimatedSection } from '@/components/ui/animated-section';
-
+import SplashCursor from './SplashCursor'
 export function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -24,13 +24,13 @@ export function HeroSection() {
     const cubes = [];
     
     // Create 40 floating cubes
-    for (let i = 0; i < 300; i++) {
+    for (let i = 0; i < 500; i++) {
       const cube = document.createElement('div');
       cube.className = 'absolute w-4 h-4 border border-primary/30 opacity-60';
       
       // Random position
-      const x = Math.random() * 400;
-      const y = Math.random() * 200;
+      const x = Math.random() * 300;
+      const y = Math.random() * 300;
       const size = Math.random() * 100 + 4;
       
       cube.style.left = `${x}%`;
@@ -62,15 +62,16 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/30">
+    <section style={{marginTop:"100px"}} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/30">
       {/* CSS Cubes Container */}
+      <SplashCursor/>
       <div 
         ref={containerRef} 
         className="absolute inset-0 z-0 overflow-hidden"
       />
 
       {/* Animated Background Overlay */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0"   >
         <div
           className="absolute inset-0 opacity-20"
           style={{
@@ -86,14 +87,7 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
-          <AnimatedSection animation="fade-in" delay={200}>
-            <div className="inline-flex items-center gap-2 bg-muted/50 backdrop-blur-sm border border-border/50 rounded-full px-4 py-2 mb-8">
-              <Sparkles className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-muted-foreground">
-                Award-winning IT solutions since 2024
-              </span>
-            </div>
-          </AnimatedSection>
+         
 
           <AnimatedSection animation="slide-up" delay={400}>
             <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
