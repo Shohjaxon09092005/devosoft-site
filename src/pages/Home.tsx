@@ -21,6 +21,132 @@ import {
   Users,
   Award,
 } from "lucide-react";
+import { useState, useRef, useCallback, useEffect } from "react";
+
+// Takomillashtirilgan MagicBentoCard komponenti
+const MagicBentoCard = ({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+  const [stars, setStars] = useState<
+    Array<{
+      id: number;
+      x: number;
+      y: number;
+      size: number;
+      opacity: number;
+      delay: number;
+      duration: number;
+    }>
+  >([]);
+
+  // Yulduzlarni yaratish
+  useEffect(() => {
+    const newStars = Array.from({ length: 50 }).map((_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 4 + 1,
+      opacity: Math.random() * 0.8 + 0.2,
+      delay: Math.random() * 5,
+      duration: Math.random() * 10 + 5,
+    }));
+    setStars(newStars);
+  }, []);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      setMousePosition({ x, y });
+    }
+  }, []);
+
+  const handleMouseEnter = useCallback(() => {
+    setIsHovering(true);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsHovering(false);
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className={`relative overflow-hidden rounded-xl transition-all duration-500 ${className} ${
+        isHovering ? "shadow-2xl shadow-primary/20" : ""
+      }`}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transform: isHovering
+          ? `perspective(1000px) rotateX(${
+              5 - mousePosition.y / 10
+            }deg) rotateY(${mousePosition.x / 10 - 5}deg) scale(1.05)`
+          : "none",
+        transition: "transform 0.3s ease-out, box-shadow 0.3s ease-out",
+      }}
+    >
+      {children}
+
+      {/* MagicBento effekti - yulduzli osmon */}
+      <div
+        className="absolute inset-0 pointer-events-none overflow-hidden"
+        style={{
+          opacity: isHovering ? 1 : 0,
+          transition: "opacity 0.5s ease-in-out",
+          background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, 
+                       rgba(125, 100, 255, 0.2) 0%, 
+                       rgba(125, 100, 255, 0.1) 30%, 
+                       transparent 70%)`,
+        }}
+      >
+        {/* Yulduz effektlari - ko'p sonli va harakatdagi yulduzlar */}
+        {stars.map((star) => (
+          <div
+            key={star.id}
+            className="absolute rounded-full bg-white"
+            style={{
+              left: `${star.x}%`,
+              top: `${star.y}%`,
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              opacity: isHovering ? star.opacity : 0,
+              animation: `twinkle ${star.duration}s ease-in-out ${
+                star.delay
+              }s infinite, float ${star.duration * 2}s ease-in-out ${
+                star.delay
+              }s infinite`,
+              boxShadow: "0 0 10px 2px rgba(255, 255, 255, 0.7)",
+              transition: "opacity 0.5s ease-in-out",
+            }}
+          />
+        ))}
+
+        {/* Gradient highlight effekti */}
+        <div
+          className="absolute inset-0 opacity-0 transition-opacity duration-300"
+          style={{
+            opacity: isHovering ? 0.2 : 0,
+            background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, 
+                         rgba(255, 255, 255, 0.4) 0%, 
+                         transparent 60%)`,
+          }}
+        />
+      </div>
+    </div>
+  );
+};
 
 export default function Home() {
   const services = [
@@ -132,39 +258,41 @@ export default function Home() {
                 animation="slide-up"
                 delay={index * 100}
               >
-                <Card className="group h-full border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 bg-gradient-to-br from-card to-muted/30 backdrop-blur-sm">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-gradient-to-r from-primary to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <service.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                      {service.title}
-                    </CardTitle>
-                    <CardDescription className="text-muted-foreground">
-                      {service.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {service.features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-center text-sm text-muted-foreground"
-                        >
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                    <Button
-                      variant="ghost"
-                      className="w-full mt-4 group-hover:bg-primary/10"
-                    >
-                      Learn More
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </CardContent>
-                </Card>
+                <MagicBentoCard delay={index * 100}>
+                  <Card className="group h-full border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 bg-gradient-to-br from-card to-muted/30 backdrop-blur-sm">
+                    <CardHeader>
+                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <service.icon className="h-6 w-6 text-white" />
+                      </div>
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                        {service.title}
+                      </CardTitle>
+                      <CardDescription className="text-muted-foreground">
+                        {service.description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2">
+                        {service.features.map((feature) => (
+                          <li
+                            key={feature}
+                            className="flex items-center text-sm text-muted-foreground"
+                          >
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                      <Button
+                        variant="ghost"
+                        className="w-full mt-4 group-hover:bg-primary/10"
+                      >
+                        Learn More
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </MagicBentoCard>
               </AnimatedSection>
             ))}
           </div>
