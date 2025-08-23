@@ -15,6 +15,7 @@ import BlogDetail from './pages/BlogDetail';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+import SplashCursor from "../src/components/ui/SplashCursor";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,8 @@ const App = () => (
             <div className="min-h-screen flex flex-col">
               <Header />
               <main className="flex-1">
+      <SplashCursor />
+
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />
