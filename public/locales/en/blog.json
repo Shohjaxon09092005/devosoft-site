@@ -1,0 +1,149 @@
+{
+    "hero": {
+        "badge": "Tech Blog",
+        "title": "Insights & Innovation",
+        "title2": "& Innovation",
+        "subtitle": "Stay updated with the latest trends, best practices, and insights from the world of technology and software development."
+    },
+    "search": {
+        "placeholder": "Search articles...",
+        "all": "All",
+        "ai": "AI/ML",
+        "web": "Web Development",
+        "cloud": "Cloud",
+        "mobile": "Mobile",
+        "cybersecurity": "Cybersecurity",
+        "devops": "DevOps"
+    },
+    "featured": {
+        "title": "Featured Articles",
+        "subtitle": "Don't miss these highlighted insights",
+        "badge": "Featured"
+    },
+    "articles": {
+        "title": "All Articles",
+        "found": "found",
+        "readMore": "Read More"
+    },
+    "post": {
+        "author": "Author",
+        "date": "Date",
+        "likes": "Likes",
+        "comments": "Comments",
+        "readTime": "Read Time"
+    },
+    "newsletter": {
+        "title": "Stay Updated",
+        "subtitle": "Subscribe to our newsletter and never miss the latest insights, tutorials, and industry news.",
+        "placeholder": "Enter your email",
+        "button": "Subscribe"
+    },
+    "portfolio": {
+        "tags": [
+            "All",
+            "AI/ML",
+            "Web Development",
+            "Cloud",
+            "Mobile",
+            "Cybersecurity",
+            "DevOps"
+        ],
+        "blogPosts": [
+            {
+                "id": 1,
+                "title": "The Future of AI in Software Development",
+                "excerpt": "Exploring how artificial intelligence is revolutionizing the way we build software applications.",
+                "content": "Artificial Intelligence is transforming software development in unprecedented ways...",
+                "author": "Alex Rodriguez",
+                "date": "2024-01-15",
+                "readTime": "5 min read",
+                "tags": [
+                    "AI/ML",
+                    "Software Development"
+                ],
+                "likes": 42,
+                "comments": 8,
+                "featured": true
+            },
+            {
+                "id": 2,
+                "title": "Building Scalable Cloud Architecture",
+                "excerpt": "Best practices for designing and implementing scalable cloud solutions that grow with your business.",
+                "content": "Cloud architecture design is crucial for modern applications...",
+                "author": "Sarah Chen",
+                "date": "2024-01-12",
+                "readTime": "7 min read",
+                "tags": [
+                    "Cloud",
+                    "DevOps"
+                ],
+                "likes": 36,
+                "comments": 12,
+                "featured": false
+            },
+            {
+                "id": 3,
+                "title": "Cybersecurity Best Practices for 2024",
+                "excerpt": "Essential security measures every organization should implement to protect against modern threats.",
+                "content": "As cyber threats evolve, so must our security practices...",
+                "author": "Michael Torres",
+                "date": "2024-01-10",
+                "readTime": "6 min read",
+                "tags": [
+                    "Cybersecurity"
+                ],
+                "likes": 28,
+                "comments": 5,
+                "featured": false
+            },
+            {
+                "id": 4,
+                "title": "React Performance Optimization Techniques",
+                "excerpt": "Advanced strategies to optimize React applications for better performance and user experience.",
+                "content": "React performance optimization is critical for user satisfaction...",
+                "author": "Emily Johnson",
+                "date": "2024-01-08",
+                "readTime": "8 min read",
+                "tags": [
+                    "Web Development",
+                    "React"
+                ],
+                "likes": 54,
+                "comments": 15,
+                "featured": true
+            },
+            {
+                "id": 5,
+                "title": "Mobile App Development Trends",
+                "excerpt": "The latest trends and technologies shaping the mobile app development landscape.",
+                "content": "Mobile development continues to evolve with new frameworks and approaches...",
+                "author": "Alex Rodriguez",
+                "date": "2024-01-05",
+                "readTime": "4 min read",
+                "tags": [
+                    "Mobile",
+                    "Development"
+                ],
+                "likes": 33,
+                "comments": 7,
+                "featured": false
+            },
+            {
+                "id": 6,
+                "title": "DevOps Culture and Continuous Integration",
+                "excerpt": "How to build a successful DevOps culture and implement effective CI/CD pipelines.",
+                "content": "DevOps is more than just tools and processes...",
+                "author": "Sarah Chen",
+                "date": "2024-01-03",
+                "readTime": "6 min read",
+                "tags": [
+                    "DevOps",
+                    "CI/CD"
+                ],
+                "likes": 41,
+                "comments": 9,
+                "featured": false
+            }
+        ]
+    }
+}

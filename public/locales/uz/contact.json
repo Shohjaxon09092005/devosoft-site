@@ -1,0 +1,124 @@
+{
+  "hero": {
+    "badge": "Biz bilan bog‘laning",
+    "title": "Keling",
+    "title2":"Bog‘lanamiz",
+    "description": "Biznesingizni ilg‘or texnologiyalar bilan o‘zgartirishga tayyormisiz? Loyihangiz haqida suhbatlashishdan xursand bo‘lamiz."
+  },
+  "contactInfo": [
+    {
+      "icon": "Mail",
+      "title": "Email orqali",
+      "description": "Bizga email orqali murojaat qiling",
+      "contact": "info@devosoft.com",
+      "action": "mailto:info@devosoft.com"
+    },
+    {
+      "icon": "Phone",
+      "title": "Bizga qo‘ng‘iroq qiling",
+      "description": "Jamoamiz bilan suhbatlashing",
+      "contact": "+1 (555) 123-4567",
+      "action": "tel:+15551234567"
+    },
+    {
+      "icon": "MapPin",
+      "title": "Bizning manzilimiz",
+      "description": "Bosh ofisimiz",
+      "contact": "123 Tech Street, San Francisco, CA 94102",
+      "action": "#"
+    },
+    {
+      "icon": "Clock",
+      "title": "Ish vaqti",
+      "description": "Dushanba - Juma",
+      "contact": "9:00 - 18:00 (PST)",
+      "action": "#"
+    }
+  ],
+  "form": {
+    "title": "Bizga xabar yuboring",
+    "description": "Quyidagi formani to‘ldiring va biz 24 soat ichida siz bilan bog‘lanamiz.",
+    "fields": {
+      "firstName": "Ism",
+      "lastName": "Familiya",
+      "email": "Email",
+      "company": "Kompaniya",
+      "service": "Qiziqayotgan xizmat",
+      "message": "Xabar"
+    },
+    "placeholders": {
+      "firstName": "Javlon",
+      "lastName": "Karimov",
+      "email": "javlon@example.com",
+      "company": "Sizning Kompaniyangiz",
+      "service": "Xizmatni tanlang",
+      "message": "Loyihangiz haqida bizga yozing..."
+    },
+    "services": [
+      { "value": "software-development", "label": "Dasturiy ta'minot ishlab chiqish" },
+      { "value": "ai-solutions", "label": "AI yechimlari" },
+      { "value": "digital-transformation", "label": "Raqamli transformatsiya" },
+      { "value": "cybersecurity", "label": "Kiberxavfsizlik" },
+      { "value": "cloud-services", "label": "Bulutli xizmatlar" },
+      { "value": "consulting", "label": "Konsalting" }
+    ],
+    "button": "Xabar yuborish"
+  },
+  "map": {
+    "title": "Bizni toping",
+    "description": "Interaktiv xarita tez orada qo‘shiladi",
+    "icon": "MapPin"
+  },
+  "offices": {
+    "title": "Global ofislarimiz",
+    "description": "Mijozlarimizga yanada qulay xizmat ko‘rsatish uchun butun dunyo bo‘ylab ofislarimiz mavjud.",
+    "items": [
+      {
+        "city": "San-Fransisko",
+        "address": "123 Tech Street, San Francisco, CA 94102",
+        "phone": "+1 (555) 123-4567",
+        "email": "sf@devosoft.com"
+      },
+      {
+        "city": "Nyu-York",
+        "address": "456 Innovation Ave, New York, NY 10001",
+        "phone": "+1 (555) 234-5678",
+        "email": "ny@devosoft.com"
+      },
+      {
+        "city": "London",
+        "address": "789 Digital Lane, London EC2A 2DA, UK",
+        "phone": "+44 20 7123 4567",
+        "email": "london@devosoft.com"
+      }
+    ],
+    "icon": "Building"
+  },
+  "faq": {
+    "title": "Ko‘p so‘raladigan savollar",
+    "description": "Xizmatlarimiz va jarayonlarimiz haqida tez-tez beriladigan savollarga javoblar.",
+    "items": [
+      {
+        "question": "Odatda loyihangiz qancha vaqt oladi?",
+        "answer": "Loyiha davomiyligi murakkablikka qarab farq qiladi, lekin ko‘pchilik loyihalar 2-6 oy ichida tugatiladi. Boshlang‘ich suhbatda batafsil reja taqdim qilamiz."
+      },
+      {
+        "question": "Loyiha tugagandan keyin ham qo‘llab-quvvatlaysizmi?",
+        "answer": "Ha, biz texnik yordam, yangilanishlar va qo‘llab-quvvatlashni o‘z ichiga olgan to‘liq paketlarni taklif qilamiz."
+      },
+      {
+        "question": "Qaysi texnologiyalar bo‘yicha ixtisoslashgansiz?",
+        "answer": "Biz React, Node.js, Python, AI/ML frameworklari, bulutli platformalar (AWS, Azure, GCP) va boshqalar bilan ishlaymiz."
+      },
+      {
+        "question": "Loyihada xavfsizlik va ma'lumot maxfiyligini qanday ta'minlaysiz?",
+        "answer": "Biz sanoatning eng yaxshi amaliyotlariga amal qilamiz: shifrlangan aloqa, xavfsiz ishlab chiqish amaliyotlari va tegishli qonunchilik talablariga rioya qilamiz."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Loyihangizni boshlashga tayyormisiz?",
+    "description": "Keling, g‘oyalaringiz haqida suhbatlashamiz va ularni hayotga tadbiq etishda yordam beramiz.",
+    "button": "Bepul maslahat belgilang"
+  }
+}

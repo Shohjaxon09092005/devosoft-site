@@ -1,0 +1,125 @@
+{
+  "careers": {
+    "hero": {
+      "badge": "Jamoamizga Qo‘shiling",
+      "title": "Kelajakni",
+      "title2":"Biz Bilan",
+      "title3":"Qur!",
+      "description": "Texnologiya kelajagini shakllantirayotgan innovatorlar jamoasiga qo‘shiling. Muvofiq imkoniyat topib, mazmunli ta’sir ko‘rsating.",
+      "apply":"Hozir murojaat qiling"
+    },
+    "benefitsSection": {
+      "title": "Nega Biz Bilan Ishlashingiz Kerak?",
+      "description": "Biz har bir kishi o‘zining eng yaxshi ishini qila oladigan va martabasini rivojlantira oladigan muhit yaratishga ishonamiz.",
+      "benefits": [
+        {
+          "icon": "Heart",
+          "title": "Sog‘liq va Farovonlik",
+          "description": "To‘liq tibbiy, stomatologik va ko‘rish sug‘urtasi, shuningdek sog‘lom turmush dasturlari."
+        },
+        {
+          "icon": "Coffee",
+          "title": "Moslashuvchan Madaniyat",
+          "description": "Masofaviy ishlash imkoniyati, moslashuvchan soatlar va cheklanmagan ta’til."
+        },
+        {
+          "icon": "Zap",
+          "title": "Zamonaviy Texnologiyalar",
+          "description": "Sanoatdagi eng so‘nggi texnologiya va vositalar bilan ishlash imkoniyati."
+        },
+        {
+          "icon": "Globe",
+          "title": "Masofadan Ishlash",
+          "description": "Dunyoning istalgan joyidan bizning jamoamizga qo‘shiling."
+        },
+        {
+          "icon": "Award",
+          "title": "Raqobatbardosh Paket",
+          "description": "Zo‘r maosh, aksiyalar va to‘liq ijtimoiy paket."
+        },
+        {
+          "icon": "BookOpen",
+          "title": "O‘sish va Ta’lim",
+          "description": "Kasbiy rivojlanish byudjeti va doimiy o‘rganish imkoniyatlari."
+        }
+      ]
+    },
+    "jobsSection": {
+      "title": "Ochiq Vakansiyalar",
+      "description": "Bizning jamoamizga qo‘shiling va texnologiya kelajagini shakllantiring",
+      "jobs": [
+        {
+          "id": 1,
+          "title": "Katta Full Stack Dasturchi",
+          "department": "Muhandislik",
+          "location": "San-Fransisko, AQSH",
+          "type": "To‘liq stavka",
+          "experience": "5+ yil",
+          "salary": "$120k - $180k",
+          "description": "Biz muhandislik jamoamizga qo‘shilib, platformamizning yangi avlodini yaratishda yordam beradigan katta full stack dasturchi qidirmoqdamiz.",
+          "requirements": [
+            "5+ yillik full stack tajribasi",
+            "React, Node.js va TypeScript bo‘yicha tajriba",
+            "Bulut platformalari (AWS, Azure, GCP) bilan ishlash tajribasi",
+            "Muammolarni hal qilish va muloqot ko‘nikmalari"
+          ],
+          "benefits": [
+            "Raqobatbardosh maosh va aksiyalar",
+            "Sog‘liqni saqlash sug‘urtasi",
+            "Moslashuvchan ish soatlari",
+            "Kasbiy rivojlanish byudjeti"
+          ]
+        },
+        {
+          "id": 2,
+          "title": "AI/ML Muhandisi",
+          "department": "AI Tadqiqot",
+          "location": "Masofaviy",
+          "type": "To‘liq stavka",
+          "experience": "3+ yil",
+          "salary": "$130k - $200k",
+          "description": "Mijozlarimiz uchun ilg‘or mashina o‘rganish yechimlarini ishlab chiqadigan AI tadqiqot jamoamizga qo‘shiling.",
+          "requirements": [
+            "Kompyuter fanlari yoki tegishli sohada magistr darajasi",
+            "TensorFlow, PyTorch yoki shunga o‘xshash freymvorklar bilan ishlash tajribasi",
+            "Mashina o‘rganish algoritmlari bo‘yicha bilim",
+            "Python dasturlash tajribasi"
+          ],
+          "benefits": [
+            "Masofaviy ishlash madaniyati",
+            "Eng yaxshi jihozlar",
+            "Konferensiya va trening byudjeti",
+            "Moslashuvchan ta’til"
+          ]
+        },
+        {
+          "id": 3,
+          "title": "DevOps Muhandisi",
+          "department": "Infratuzilma",
+          "location": "Nyu-York, AQSH",
+          "type": "To‘liq stavka",
+          "experience": "4+ yil",
+          "salary": "$110k - $160k",
+          "description": "Biz o‘sar ekanmiz, infratuzilmamizni kengaytirish va joylashtirish jarayonlarimizni yaxshilashga yordam bering.",
+          "requirements": [
+            "4+ yillik DevOps tajribasi",
+            "Kubernetes va Docker bo‘yicha tajriba",
+            "CI/CD pipeline bilan ishlash tajribasi",
+            "Infratuzilmani kod sifatida boshqarish (Terraform) bo‘yicha bilim"
+          ],
+          "benefits": [
+            "Aksiyalar",
+            "Generoz ota-onalik ta’tili",
+            "O‘qish va rivojlanish uchun stipendiya",
+            "Jamoaviy tadbirlar"
+          ]
+        }
+      ]
+    },
+    "cta": {
+      "title": "Mos Vakansiya Topmadingizmi?",
+      "description": "Biz har doim iste’dodli insonlarni qidiramiz. Rezyumeyingizni yuboring va qanday hissa qo‘shmoqchi ekaningizni bizga ayting.",
+      "button": "Rezyumeni Yuborish"
+    }
+  }
+}

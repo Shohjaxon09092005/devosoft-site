@@ -1,0 +1,134 @@
+{
+    "hero": {
+        "badge": "Bizning Portfolio",
+        "title": "Muvaffaqiyat",
+        "title2": "Haqida",
+        "description": "Bizning muvaffaqiyatli loyihalarimizni ko‘ring — ular bizneslarni o‘zgartirib, mijozlarimizga ajoyib natijalar olib keldi.",
+        "view_button": "Tafsilotlarni ko'rish",
+        "technologies_used": "Ishlatilgan texnologiyalar",
+        "key_challange": "Asosiy muammolar",
+        "Result": "Natijalar va ta'sir",
+        "demo": "Jonli demo",
+        "view_code": "Kodni ko'rish"
+    },
+    "filter": {
+        "label": "Filtrlash:",
+        "categories": [
+            "Hammasi",
+            "Veb Dasturlash",
+            "AI/ML",
+            "Mobil Ilovalar",
+            "Bulutli Yechimlar",
+            "E-commerce"
+        ]
+    },
+    "projects": [
+        {
+            "id": 1,
+            "title": "FinTech Dashboard",
+            "category": "Veb Dasturlash",
+            "description": "Moliyaviy tahlil uchun real vaqtli vizualizatsiyaga ega keng qamrovli dashboard.",
+            "fullDescription": "Moliyaviy xizmat ko‘rsatuvchi kompaniya uchun yaratilgan bu dashboard bozor tendensiyalari, portfel samaradorligi va xavf tahlili haqida real vaqtli ma’lumot beradi. Interaktiv grafiklar, maxsus ogohlantirishlar va ilg‘or filtrlash imkoniyatlariga ega.",
+            "technologies": [
+                "React",
+                "D3.js",
+                "Node.js",
+                "PostgreSQL",
+                "AWS"
+            ],
+            "challenges": "Real vaqtli ma’lumotlarni qayta ishlash, murakkab vizualizatsiyalar, yuqori samaradorlik talablari",
+            "results": "Qaror qabul qilish tezligi 40% oshdi, foydalanuvchilar ishtiroki 60% ko‘paydi"
+        },
+        {
+            "id": 2,
+            "title": "AI Mijozlarga Xizmat Bot",
+            "category": "AI/ML",
+            "description": "Mijozlarning 80% savollariga avtomatik javob bera oladigan aqlli chatbot.",
+            "fullDescription": "Tabiiy tilni qayta ishlash (NLP) yordamida mijozlarning so‘rovlariga tushunib javob bera oladigan ilg‘or AI chatbot. CRM tizimlari bilan integratsiya qilingan va murakkab suhbatlarni boshqarish imkoniyatiga ega.",
+            "technologies": [
+                "OpenAI GPT",
+                "Python",
+                "Flask",
+                "Redis",
+                "Docker"
+            ],
+            "challenges": "Tabiiy tilni tushunish, kontekstni boshqarish, inson operatoriga muammosiz uzatish",
+            "results": "Yordam chiptalari soni 80% kamaydi, 24/7 mavjudlik, 95% mijozlar qoniqishi"
+        },
+        {
+            "id": 3,
+            "title": "E-commerce Mobil Ilova",
+            "category": "Mobil Ilovalar",
+            "description": "AR mahsulot vizualizatsiyasi va xavfsiz to‘lovlarga ega kross-platforma mobil ilova.",
+            "fullDescription": "AR mahsulotlarni ko‘rish, bir bosishda to‘lov qilish, shaxsiy tavsiyalar va ijtimoiy savdo funksiyalari bilan zamonaviy e-commerce mobil ilova. React Native yordamida iOS va Android uchun yaratilgan.",
+            "technologies": [
+                "React Native",
+                "ARKit",
+                "Stripe",
+                "Firebase",
+                "Redux"
+            ],
+            "challenges": "AR integratsiyasi, to‘lov xavfsizligi, platformalararo samaradorlik",
+            "results": "Konversiya darajasi 300% oshdi, sessiya davomiyligi 50% uzaydi"
+        },
+        {
+            "id": 4,
+            "title": "Bulutga Migratsiya Platformasi",
+            "category": "Bulutli Yechimlar",
+            "description": "Migratsiya vaqtini 70% ga qisqartiradigan avtomatlashtirilgan bulut platformasi.",
+            "fullDescription": "Korporativ darajadagi bulutga migratsiya platformasi baholash, rejalashtirish va bajarish jarayonlarini avtomatlashtiradi. Asosiy funksiyalar: bog‘liqlik xaritalash, xarajatlarni optimallashtirish va nol-downtime bilan migratsiya qilish.",
+            "technologies": [
+                "AWS",
+                "Terraform",
+                "Docker",
+                "Kubernetes",
+                "Python"
+            ],
+            "challenges": "Downtime bo‘lmasligi, ma’lumot yaxlitligi, xarajatlarni kamaytirish",
+            "results": "Migratsiya 70% tezlashdi, xarajatlar 40% kamaydi, 99.9% uptime"
+        },
+        {
+            "id": 5,
+            "title": "Sog‘liqni Tahlil Platformasi",
+            "category": "Veb Dasturlash",
+            "description": "Tibbiyot ma’lumotlarini tahlil qilish va hisobot qilish uchun HIPAA standartiga mos platforma.",
+            "fullDescription": "Bemorlar ma’lumotlarini qayta ishlash orqali klinik qaror qabul qilishda yordam beruvchi xavfsiz tahliliy platforma. Xususiyatlar: prognozlash modeli, avtomatlashtirilgan hisobotlar va standartlarga muvofiqlik nazorati.",
+            "technologies": [
+                "Vue.js",
+                "Python",
+                "TensorFlow",
+                "PostgreSQL",
+                "Azure"
+            ],
+            "challenges": "HIPAA standartlari, ma’lumot xavfsizligi, real vaqtli qayta ishlash",
+            "results": "Bemorlar natijalari 25% yaxshilandi, tashxis tezligi 50% oshdi"
+        },
+        {
+            "id": 6,
+            "title": "Smart Retail Tizimi",
+            "category": "E-commerce",
+            "description": "Inventarizatsiyani avtomatlashtiruvchi IoT asosidagi chakana savdo tizimi.",
+            "fullDescription": "IoT sensorlari, kompyuter ko‘rish va mashina o‘rganish texnologiyalarini qo‘llab, inventarizatsiyani avtomatlashtiruvchi va mijozlar tajribasini yaxshilovchi chakana savdo tizimi.",
+            "technologies": [
+                "React",
+                "IoT",
+                "Computer Vision",
+                "MongoDB",
+                "Node.js"
+            ],
+            "challenges": "IoT integratsiyasi, real vaqtli qayta ishlash, kengayuvchanlik",
+            "results": "Inventarizatsiya aniqligi 90% ga yetdi, savdo hajmi 30% oshdi"
+        }
+    ],
+    "stats": {
+        "projects": "Yetkazilgan Loyiha",
+        "clients": "Baxtli Mijozlar",
+        "success": "Muvaffaqiyat Ko‘rsatkichi",
+        "industries": "Xizmat Ko‘rsatilgan Sanoatlar"
+    },
+    "cta": {
+        "title": "Loyihangizni Boshlashga Tayyormisiz?",
+        "description": "Keyingi loyihangizda ham sizga muvaffaqiyat olib kelishda qanday yordam berishimiz mumkinligini muhokama qilaylik.",
+        "button": "Bugun Boshlang"
+    }
+}

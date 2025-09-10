@@ -1,0 +1,150 @@
+{
+    "hero": {
+        "badge": "Texno Blog",
+        "title": "Innovatsiyalar",
+        "title2": "& Yangi G‘oyalar",
+        "subtitle": "Texnologiya va dasturiy ta’minot dunyosidagi so‘nggi yangiliklar, eng yaxshi tajribalar va fikrlardan xabardor bo‘ling."
+    },
+    "search": {
+        "placeholder": "Maqolalarni qidiring...",
+        "all": "Barchasi",
+        "ai": "AI/ML",
+        "web": "Veb Dasturlash",
+        "cloud": "Bulut",
+        "mobile": "Mobil",
+        "cybersecurity": "Kiberxavfsizlik",
+        "devops": "DevOps"
+    },
+    "featured": {
+        "title": "Tanlangan Maqolalar",
+        "subtitle": "Ushbu muhim maqolalarni o‘tkazib yubormang",
+        "badge": "Tanlangan"
+    },
+    "articles": {
+        "title": "Barcha Maqolalar",
+        "found": "topildi",
+        "readMore": "Batafsil o‘qish"
+    },
+    "post": {
+        "author": "Muallif",
+        "date": "Sana",
+        "likes": "Layklar",
+        "comments": "Izohlar",
+        "readTime": "O‘qish vaqti"
+    },
+    "newsletter": {
+        "title": "Yangiliklardan Xabardor Bo‘ling",
+        "subtitle": "Yangiliklar, qo‘llanmalar va soha yangiliklarini o‘tkazib yubormaslik uchun bizning xabarnomamizga obuna bo‘ling.",
+        "placeholder": "Emailingizni kiriting",
+        "button": "Obuna bo‘lish"
+    },
+    "portfolio": {
+        "tags": [
+            "Barchasi",
+            "AI/ML",
+            "Veb Dasturlash",
+            "Bulut",
+            "Mobil",
+            "Kiberxavfsizlik",
+            "DevOps"
+        ],
+        "blogPosts": [
+            {
+                "id": 1,
+                "title": "Dasturiy ta'minotda sun'iy intellekt kelajagi",
+                "excerpt": "Sun'iy intellekt dasturiy ilovalar yaratish jarayonini qanday o‘zgartirayotganini o‘rganamiz.",
+                "content": "Sun'iy intellekt dasturiy ta'minotni ilgari ko‘rilmagan usullarda o‘zgartirmoqda...",
+                "author": "Alex Rodriguez",
+                "date": "2024-01-15",
+                "readTime": "5 daqiqa o‘qish",
+                "tags": [
+                    "AI/ML",
+                    "Dasturiy ta'minot"
+                ],
+                "likes": 42,
+                "comments": 8,
+                "featured": true
+            },
+            {
+                "id": 2,
+                "title": "Masshtablanadigan bulutli arxitektura yaratish",
+                "excerpt": "Biznesingiz bilan birga o‘sadigan bulutli yechimlarni loyihalash va joriy etish bo‘yicha eng yaxshi amaliyotlar.",
+                "content": "Bulutli arxitektura dizayni zamonaviy ilovalar uchun juda muhim...",
+                "author": "Sarah Chen",
+                "date": "2024-01-12",
+                "readTime": "7 daqiqa o‘qish",
+                "tags": [
+                    "Bulut",
+                    "DevOps"
+                ],
+                "likes": 36,
+                "comments": 12,
+                "featured": false
+            },
+            {
+                "id": 3,
+                "title": "2024-yil uchun kiberxavfsizlik amaliyotlari",
+                "excerpt": "Har bir tashkilot zamonaviy tahdidlardan himoyalanish uchun amalga oshirishi kerak bo‘lgan xavfsizlik choralar.",
+                "content": "Kiber tahdidlar rivojlanar ekan, bizning xavfsizlik amaliyotlarimiz ham shunga qarab rivojlanishi kerak...",
+                "author": "Michael Torres",
+                "date": "2024-01-10",
+                "readTime": "6 daqiqa o‘qish",
+                "tags": [
+                    "Kiberxavfsizlik"
+                ],
+                "likes": 28,
+                "comments": 5,
+                "featured": false
+            },
+            {
+                "id": 4,
+                "title": "React ilovalarini optimallashtirish usullari",
+                "excerpt": "React ilovalarini samaradorligi va foydalanuvchi tajribasini yaxshilash uchun ilg‘or strategiyalar.",
+                "content": "React ilovalarini optimallashtirish foydalanuvchi qoniqishi uchun juda muhim...",
+                "author": "Emily Johnson",
+                "date": "2024-01-08",
+                "readTime": "8 daqiqa o‘qish",
+                "tags": [
+                    "Veb Dasturlash",
+                    "React"
+                ],
+                "likes": 54,
+                "comments": 15,
+                "featured": true
+            },
+            {
+                "id": 5,
+                "title": "Mobil ilovalar ishlab chiqish tendensiyalari",
+                "excerpt": "Mobil ilovalar ishlab chiqishda shakllanayotgan so‘nggi tendensiyalar va texnologiyalar.",
+                "content": "Mobil dasturlash yangi freymvorklar va yondashuvlar bilan rivojlanishda davom etmoqda...",
+                "author": "Alex Rodriguez",
+                "date": "2024-01-05",
+                "readTime": "4 daqiqa o‘qish",
+                "tags": [
+                    "Mobil",
+                    "Dasturlash"
+                ],
+                "likes": 33,
+                "comments": 7,
+                "featured": false
+            },
+            {
+                "id": 6,
+                "title": "DevOps madaniyati va uzluksiz integratsiya",
+                "excerpt": "Muvaffaqiyatli DevOps madaniyatini shakllantirish va samarali CI/CD tizimlarini joriy qilish.",
+                "content": "DevOps faqatgina vositalar va jarayonlardan iborat emas...",
+                "author": "Sarah Chen",
+                "date": "2024-01-03",
+                "readTime": "6 daqiqa o‘qish",
+                "tags": [
+                    "DevOps",
+                    "CI/CD"
+                ],
+                "likes": 41,
+                "comments": 9,
+                "featured": false
+            }
+        ]
+        
+    }
+}

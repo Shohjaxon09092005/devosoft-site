@@ -1,0 +1,125 @@
+{
+  "careers": {
+    "hero": {
+      "badge": "Join Our Team",
+      "title": "Build the",
+      "title2":"Future",
+      "title3":"With Us",
+      "description": "Join a team of passionate innovators who are shaping the future of technology. Find your next opportunity to make a meaningful impact.",
+      "apply":"Apply Now"
+    },
+    "benefitsSection": {
+      "title": "Why Work With Us?",
+      "description": "We believe in creating an environment where everyone can do their best work and grow their careers.",
+      "benefits": [
+        {
+          "icon": "Heart",
+          "title": "Health & Wellness",
+          "description": "Comprehensive health, dental, and vision insurance plus wellness programs."
+        },
+        {
+          "icon": "Coffee",
+          "title": "Flexible Culture",
+          "description": "Remote-friendly work environment with flexible hours and unlimited PTO."
+        },
+        {
+          "icon": "Zap",
+          "title": "Cutting-edge Tech",
+          "description": "Work with the latest technologies and tools in the industry."
+        },
+        {
+          "icon": "Globe",
+          "title": "Remote First",
+          "description": "Join our distributed team from anywhere in the world."
+        },
+        {
+          "icon": "Award",
+          "title": "Competitive Package",
+          "description": "Excellent salary, equity, and comprehensive benefits package."
+        },
+        {
+          "icon": "BookOpen",
+          "title": "Growth & Learning",
+          "description": "Professional development budget and continuous learning opportunities."
+        }
+      ]
+    },
+    "jobsSection": {
+      "title": "Open Positions",
+      "description": "Join our team and help shape the future of technology",
+      "jobs": [
+        {
+          "id": 1,
+          "title": "Senior Full Stack Developer",
+          "department": "Engineering",
+          "location": "San Francisco, CA",
+          "type": "Full-time",
+          "experience": "5+ years",
+          "salary": "$120k - $180k",
+          "description": "We are looking for a senior full stack developer to join our engineering team and help build the next generation of our platform.",
+          "requirements": [
+            "5+ years of experience in full stack development",
+            "Proficiency in React, Node.js, and TypeScript",
+            "Experience with cloud platforms (AWS, Azure, GCP)",
+            "Strong problem-solving and communication skills"
+          ],
+          "benefits": [
+            "Competitive salary and equity",
+            "Health, dental, and vision insurance",
+            "Flexible working hours",
+            "Professional development budget"
+          ]
+        },
+        {
+          "id": 2,
+          "title": "AI/ML Engineer",
+          "department": "AI Research",
+          "location": "Remote",
+          "type": "Full-time",
+          "experience": "3+ years",
+          "salary": "$130k - $200k",
+          "description": "Join our AI research team to develop cutting-edge machine learning solutions for our clients.",
+          "requirements": [
+            "Masters degree in Computer Science or related field",
+            "Experience with TensorFlow, PyTorch, or similar frameworks",
+            "Strong background in machine learning algorithms",
+            "Python programming expertise"
+          ],
+          "benefits": [
+            "Remote-first culture",
+            "Top-tier equipment",
+            "Conference and training budget",
+            "Flexible PTO"
+          ]
+        },
+        {
+          "id": 3,
+          "title": "DevOps Engineer",
+          "department": "Infrastructure",
+          "location": "New York, NY",
+          "type": "Full-time",
+          "experience": "4+ years",
+          "salary": "$110k - $160k",
+          "description": "Help us scale our infrastructure and improve our deployment processes as we grow.",
+          "requirements": [
+            "4+ years of DevOps experience",
+            "Expertise with Kubernetes and Docker",
+            "Experience with CI/CD pipelines",
+            "Knowledge of infrastructure as code (Terraform)"
+          ],
+          "benefits": [
+            "Stock options",
+            "Generous parental leave",
+            "Learning and development stipend",
+            "Team building events"
+          ]
+        }
+      ]
+    },
+    "cta": {
+      "title": "Don't See the Right Role?",
+      "description": "We're always looking for talented individuals. Send us your resume and let us know how you'd like to contribute.",
+      "button": "Send Your Resume"
+    }
+  }
+}

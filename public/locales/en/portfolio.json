@@ -1,0 +1,92 @@
+{
+  "hero": {
+    "badge": "Our Portfolio",
+    "title": "Success",
+    "title2":"Stories",
+    "description": "Explore our portfolio of successful projects that have transformed businesses and delivered exceptional results for our clients.",
+    "view_button":"View Details",
+    "technologies_used":"Technologies Used",
+    "key_challange":"Key Challenges",
+    "Result":"Results & Impact",
+    "demo":"Live Demo",
+    "view_code":"View Code"
+
+  },
+  "filter": {
+    "label": "Filter by:",
+    "categories": ["All", "Web Development", "AI/ML", "Mobile Apps", "Cloud Solutions", "E-commerce"]
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "FinTech Dashboard",
+      "category": "Web Development",
+      "description": "A comprehensive financial analytics dashboard with real-time data visualization.",
+      "fullDescription": "Built for a leading financial services company, this dashboard provides real-time insights into market trends, portfolio performance, and risk analysis. Features include interactive charts, custom alerts, and advanced filtering capabilities.",
+      "technologies": ["React", "D3.js", "Node.js", "PostgreSQL", "AWS"],
+      "challenges": "Real-time data processing, complex visualizations, high-performance requirements",
+      "results": "40% improvement in decision-making speed, 60% increase in user engagement"
+    },
+    {
+      "id": 2,
+      "title": "AI Customer Service Bot",
+      "category": "AI/ML",
+      "description": "Intelligent chatbot that handles 80% of customer inquiries automatically.",
+      "fullDescription": "An advanced AI-powered customer service solution that uses natural language processing to understand and respond to customer queries. Integrated with existing CRM systems and capable of handling complex multi-turn conversations.",
+      "technologies": ["OpenAI GPT", "Python", "Flask", "Redis", "Docker"],
+      "challenges": "Natural language understanding, context management, seamless handoff to human agents",
+      "results": "80% reduction in support tickets, 24/7 availability, 95% customer satisfaction"
+    },
+    {
+      "id": 3,
+      "title": "E-commerce Mobile App",
+      "category": "Mobile Apps",
+      "description": "Cross-platform mobile app with AR product visualization and secure payments.",
+      "fullDescription": "A modern e-commerce mobile application featuring augmented reality product previews, one-click checkout, personalized recommendations, and social commerce features. Built with React Native for iOS and Android.",
+      "technologies": ["React Native", "ARKit", "Stripe", "Firebase", "Redux"],
+      "challenges": "AR integration, payment security, cross-platform performance",
+      "results": "300% increase in conversion rate, 50% longer session duration"
+    },
+    {
+      "id": 4,
+      "title": "Cloud Migration Platform",
+      "category": "Cloud Solutions",
+      "description": "Automated cloud migration tool that reduces migration time by 70%.",
+      "fullDescription": "Enterprise-grade cloud migration platform that automates the assessment, planning, and execution of cloud migrations. Features include dependency mapping, cost optimization, and zero-downtime migration capabilities.",
+      "technologies": ["AWS", "Terraform", "Docker", "Kubernetes", "Python"],
+      "challenges": "Zero-downtime migration, data integrity, cost optimization",
+      "results": "70% faster migration, 40% cost reduction, 99.9% uptime"
+    },
+    {
+      "id": 5,
+      "title": "Healthcare Analytics Platform",
+      "category": "Web Development",
+      "description": "HIPAA-compliant platform for healthcare data analysis and reporting.",
+      "fullDescription": "Secure healthcare analytics platform that processes patient data to provide insights for clinical decision-making. Features include predictive modeling, automated reporting, and compliance monitoring.",
+      "technologies": ["Vue.js", "Python", "TensorFlow", "PostgreSQL", "Azure"],
+      "challenges": "HIPAA compliance, data security, real-time processing",
+      "results": "25% improvement in patient outcomes, 50% faster diagnosis"
+    },
+    {
+      "id": 6,
+      "title": "Smart Retail System",
+      "category": "E-commerce",
+      "description": "IoT-enabled retail management system with inventory automation.",
+      "fullDescription": "Comprehensive retail management system that combines IoT sensors, computer vision, and machine learning to automate inventory management, optimize store layouts, and enhance customer experience.",
+      "technologies": ["React", "IoT", "Computer Vision", "MongoDB", "Node.js"],
+      "challenges": "IoT integration, real-time processing, scalability",
+      "results": "90% inventory accuracy, 30% increase in sales"
+    }
+  ],
+  "stats": {
+    "projects": "Projects Delivered",
+    "clients": "Happy Clients",
+    "success": "Success Rate",
+    "industries": "Industries Served"
+  },
+  "cta": {
+    "title": "Ready to Start Your Project?",
+    "description": "Let's discuss how we can help you achieve similar success with your next project.",
+    "button": "Get Started Today"
+  }
+}

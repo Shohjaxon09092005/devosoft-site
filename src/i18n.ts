@@ -16,7 +16,7 @@ i18n
     backend: {
       loadPath: "/locales/{{lng}}/{{ns}}.json", // namespace qo‘shildi
     },
-    ns: ["translation", "about","services"], // qaysi fayllar yuklansin
+    ns: ["translation", "about","services","portfolio","blog","careers","contact"], // qaysi fayllar yuklansin
     defaultNS: "translation",     // default namespace
   });
 
