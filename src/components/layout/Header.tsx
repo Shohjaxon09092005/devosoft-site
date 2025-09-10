@@ -4,8 +4,10 @@ import { ModeToggle } from '@/components/theme/ModeToggle';
 import { LanguageToggle } from '@/components/theme/LanguageToggle';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const {t}=useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -19,13 +21,13 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Careers', path: '/careers' },
-    { name: 'Contact', path: '/contact' },
+    { name:t("nav.home"), path: '/' },
+    { name: t("nav.about"), path: '/about' },
+    { name: t("nav.services"), path: '/services' },
+    { name: t("nav.portfolio"), path: '/portfolio' },
+    { name: t("nav.blog"), path: '/blog' },
+    { name: t("nav.careers"), path: '/careers' },
+    { name: t("nav.contact"), path: '/contact' },
   ];
 
   return (
@@ -66,7 +68,7 @@ const Header = () => {
             <LanguageToggle />
             <ModeToggle />
             <Button className="bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90">
-              Get Started
+              {t("actions.getStarted")}
             </Button>
           </div>
 

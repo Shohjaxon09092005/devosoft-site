@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Facebook, Twitter, Linkedin, Github, Mail, Phone, MapPin } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const {t}=useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -21,7 +23,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Cutting-edge IT solutions specializing in software development, AI solutions, and digital transformation.
+              {t("footer.footer_company.description")}
             </p>
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon" className="hover:text-primary">
@@ -41,51 +43,51 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground">Quick Links</h3>
+            <h3 className="font-semibold text-foreground">{t("footer.footer_quickLinks.title")}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">Our Services</Link></li>
-              <li><Link to="/portfolio" className="text-muted-foreground hover:text-primary transition-colors">Portfolio</Link></li>
-              <li><Link to="/careers" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link></li>
-              <li><Link to="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link></li>
+              <li><Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">{t("footer.footer_quickLinks.about")}</Link></li>
+              <li><Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">{t("footer.footer_quickLinks.services")}</Link></li>
+              <li><Link to="/portfolio" className="text-muted-foreground hover:text-primary transition-colors">{t("footer.footer_quickLinks.portfolio")}</Link></li>
+              <li><Link to="/careers" className="text-muted-foreground hover:text-primary transition-colors">{t("footer.footer_quickLinks.careers")}</Link></li>
+              <li><Link to="/blog" className="text-muted-foreground hover:text-primary transition-colors">{t("footer.footer_quickLinks.blog")}</Link></li>
             </ul>
           </div>
 
           {/* Services */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground">Services</h3>
+            <h3 className="font-semibold text-foreground">{t("footer.footer_services.title")}</h3>
             <ul className="space-y-2 text-sm">
-              <li><span className="text-muted-foreground">Software Development</span></li>
-              <li><span className="text-muted-foreground">AI Solutions</span></li>
-              <li><span className="text-muted-foreground">Digital Transformation</span></li>
-              <li><span className="text-muted-foreground">Cloud Services</span></li>
-              <li><span className="text-muted-foreground">Mobile Apps</span></li>
+              <li><span className="text-muted-foreground">{t("footer.footer_services.software")}</span></li>
+              <li><span className="text-muted-foreground">{t("footer.footer_services.ai")}</span></li>
+              <li><span className="text-muted-foreground">{t("footer.footer_services.digital")}</span></li>
+              <li><span className="text-muted-foreground">{t("footer.footer_services.cloud")}</span></li>
+              <li><span className="text-muted-foreground">{t("footer.footer_services.mobile")}</span></li>
             </ul>
           </div>
 
           {/* Contact & Newsletter */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground">Stay Connected</h3>
+            <h3 className="font-semibold text-foreground">{t("footer.footer_contact.title")}</h3>
             <div className="space-y-3 text-sm">
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <Mail className="h-4 w-4" />
-                <span>info@devosoft.com</span>
+                <span>{t("footer.footer_contact.email")}</span>
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <Phone className="h-4 w-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>{t("footer.footer_contact.phone")}</span>
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <MapPin className="h-4 w-4" />
-                <span>San Francisco, CA</span>
+                <span>{t("footer.footer_contact.location")}</span>
               </div>
             </div>
             <div className="space-y-2">
-              <p className="text-sm font-medium">Subscribe to our newsletter</p>
+              <p className="text-sm font-medium">{t("footer.footer_contact.newsletter")}</p>
               <div className="flex space-x-2">
-                <Input placeholder="Enter your email" className="text-sm" />
+                <Input placeholder={t("footer.footer_contact.placeholder")} className="text-sm" />
                 <Button size="sm" className="bg-gradient-to-r from-primary to-purple-600">
-                  Subscribe
+                  {t("footer.footer_contact.subscribe")}
                 </Button>
               </div>
             </div>
@@ -95,12 +97,12 @@ const Footer = () => {
         <div className="border-t border-border/50 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-muted-foreground">
-              © {currentYear} DevoSoft. All rights reserved.
+              © {currentYear} DevoSoft. {t("footer.footer_legal.rights")}
             </p>
             <div className="flex space-x-6 text-sm text-muted-foreground">
-              <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-              <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
-              <Link to="/cookies" className="hover:text-primary transition-colors">Cookie Policy</Link>
+              <Link to="/privacy" className="hover:text-primary transition-colors">{t("footer.footer_legal.privacy")}</Link>
+              <Link to="/terms" className="hover:text-primary transition-colors">{t("footer.footer_legal.terms")}</Link>
+              <Link to="/cookies" className="hover:text-primary transition-colors">{t("footer.footer_legal.cookies")}</Link>
             </div>
           </div>
         </div>

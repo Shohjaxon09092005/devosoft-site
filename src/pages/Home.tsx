@@ -22,7 +22,7 @@ import {
   Award,
 } from "lucide-react";
 import { useState, useRef, useCallback, useEffect } from "react";
-
+import { useTranslation } from "react-i18next";
 // Takomillashtirilgan MagicBentoCard komponenti
 const MagicBentoCard = ({
   children,
@@ -149,84 +149,65 @@ const MagicBentoCard = ({
 };
 
 export default function Home() {
+  const { t } = useTranslation();
   const services = [
     {
       icon: Code,
-      title: "Software Development",
-      description:
-        "Custom software solutions built with cutting-edge technologies and best practices.",
-      features: [
-        "Full-stack Development",
-        "API Integration",
-        "Database Design",
-      ],
+      title: t("servicesSection.services.software.title"),
+      description: t("servicesSection.services.software.description"),
+      features: t("servicesSection.services.software.features", {
+        returnObjects: true,
+      }) as string[],
     },
     {
       icon: Brain,
-      title: "AI Solutions",
-      description:
-        "Intelligent systems powered by machine learning and artificial intelligence.",
-      features: [
-        "Machine Learning",
-        "Natural Language Processing",
-        "Computer Vision",
-      ],
+      title: t("servicesSection.services.ai.title"),
+      description: t("servicesSection.services.ai.description"),
+      features: t("servicesSection.services.ai.features", {
+        returnObjects: true,
+      }) as string[],
     },
     {
       icon: Rocket,
-      title: "Digital Transformation",
-      description:
-        "Transform your business processes with modern digital solutions.",
-      features: ["Process Automation", "Cloud Migration", "Digital Strategy"],
+      title: t("servicesSection.services.digital.title"),
+      description: t("servicesSection.services.digital.description"),
+      features: t("servicesSection.services.digital.features", {
+        returnObjects: true,
+      }) as string[],
     },
     {
       icon: Shield,
-      title: "Cybersecurity",
-      description:
-        "Comprehensive security solutions to protect your digital assets.",
-      features: ["Security Audits", "Penetration Testing", "Compliance"],
+      title: t("servicesSection.services.cyber.title"),
+      description: t("servicesSection.services.cyber.description"),
+      features: t("servicesSection.services.cyber.features", {
+        returnObjects: true,
+      }) as string[],
     },
     {
       icon: Zap,
-      title: "Performance Optimization",
-      description:
-        "Optimize your applications for maximum speed and efficiency.",
-      features: ["Code Optimization", "Database Tuning", "Caching Strategies"],
+      title: t("servicesSection.services.performance.title"),
+      description: t("servicesSection.services.performance.description"),
+      features: t("servicesSection.services.performance.features", {
+        returnObjects: true,
+      }) as string[],
     },
     {
       icon: Globe,
-      title: "Cloud Services",
-      description: "Scalable cloud infrastructure and deployment solutions.",
-      features: ["AWS/Azure/GCP", "DevOps", "Microservices"],
+      title: t("servicesSection.services.cloud.title"),
+      description: t("servicesSection.services.cloud.description"),
+      features: t("servicesSection.services.cloud.features", {
+        returnObjects: true,
+      }) as string[],
     },
   ];
 
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "CTO, TechCorp",
-      content:
-        "DevoSoft transformed our entire digital infrastructure. Their AI solutions increased our efficiency by 300%.",
-      rating: 5,
-      avatar: "/api/placeholder/64/64",
-    },
-    {
-      name: "Michael Chen",
-      role: "Founder, StartupX",
-      content:
-        "The team at DevoSoft is exceptional. They delivered our project on time and exceeded all expectations.",
-      rating: 5,
-      avatar: "/api/placeholder/64/64",
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "VP Engineering, InnovateLab",
-      content:
-        "Outstanding quality and innovative solutions. DevoSoft is our go-to partner for all tech projects.",
-      rating: 5,
-      avatar: "/api/placeholder/64/64",
-    },
-  ];
+ const testimonials = t("testimonials", { returnObjects: true }) as Array<{
+  name: string;
+  role: string;
+  content: string;
+  rating: number;
+}>;
+
 
   return (
     <div className="min-h-screen">
@@ -237,17 +218,15 @@ export default function Home() {
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection animation="fade-in" className="text-center mb-16">
             <Badge variant="outline" className="mb-4">
-              Our Services
+              {t("servicesSection.badge")}
             </Badge>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
               <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-                Comprehensive IT Solutions
+                {t("servicesSection.title")}
               </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              From concept to deployment, we provide end-to-end technology
-              solutions that drive innovation and accelerate your business
-              growth.
+              {t("servicesSection.description")}
             </p>
           </AnimatedSection>
 
@@ -287,7 +266,7 @@ export default function Home() {
                         variant="ghost"
                         className="w-full mt-4 group-hover:bg-primary/10"
                       >
-                        Learn More
+                        {t("servicesSection.button")}
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </CardContent>
@@ -309,7 +288,7 @@ export default function Home() {
                   500+
                 </div>
                 <div className="text-sm text-muted-foreground">
-                  Projects Completed
+                  {t("statsSection.projects")}
                 </div>
               </div>
               <div className="space-y-2">
@@ -317,7 +296,7 @@ export default function Home() {
                   150+
                 </div>
                 <div className="text-sm text-muted-foreground">
-                  Happy Clients
+                  {t("statsSection.clients")}
                 </div>
               </div>
               <div className="space-y-2">
@@ -325,14 +304,14 @@ export default function Home() {
                   98%
                 </div>
                 <div className="text-sm text-muted-foreground">
-                  Success Rate
+                  {t("statsSection.success")}
                 </div>
               </div>
               <div className="space-y-2">
                 <div className="text-4xl md:text-5xl font-bold text-primary">
                   24/7
                 </div>
-                <div className="text-sm text-muted-foreground">Support</div>
+                <div className="text-sm text-muted-foreground">{t("statsSection.support")}</div>
               </div>
             </div>
           </AnimatedSection>
@@ -344,22 +323,22 @@ export default function Home() {
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection animation="fade-in" className="text-center mb-16">
             <Badge variant="outline" className="mb-4">
-              Testimonials
+              {t("testimonialsSection.badge")}
             </Badge>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              What Our{" "}
+              {t("testimonialsSection.title1")}{" "}
               <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-                Clients Say
+                {t("testimonialsSection.title2")}
               </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Don't just take our word for it. Here's what industry leaders say
-              about working with DevoSoft.
+              {t("testimonialsSection.description")}
             </p>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial: any, index: number) => (
+              
               <AnimatedSection
                 key={testimonial.name}
                 delay={index * 200}
@@ -407,11 +386,10 @@ export default function Home() {
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <AnimatedSection animation="fade-in">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Ready to Transform Your Business?
+              {t("ctaSection.title")}
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Let's discuss how our innovative solutions can accelerate your
-              digital transformation journey.
+              {t("ctaSection.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -419,7 +397,7 @@ export default function Home() {
                 variant="secondary"
                 className="bg-white text-primary hover:bg-white/90"
               >
-                Start Your Project
+                {t("ctaSection.start")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button
@@ -427,7 +405,7 @@ export default function Home() {
                 variant="outline"
                 className="border-white text-white hover:bg-white/10"
               >
-                Schedule Consultation
+                {t("ctaSection.schedule")}
               </Button>
             </div>
           </AnimatedSection>

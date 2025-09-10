@@ -1,0 +1,179 @@
+{
+    "servicesSection": {
+        "badge": "Our Services",
+        "title": "Comprehensive IT Solutions",
+        "description": "From concept to deployment, we provide end-to-end technology solutions that drive innovation and accelerate your business growth.",
+        "services": {
+            "software": {
+                "title": "Software Development",
+                "description": "Custom software solutions built with cutting-edge technologies and best practices.",
+                "features": [
+                    "Full-stack Development",
+                    "API Integration",
+                    "Database Design"
+                ]
+            },
+            "ai": {
+                "title": "AI Solutions",
+                "description": "Intelligent systems powered by machine learning and artificial intelligence.",
+                "features": [
+                    "Machine Learning",
+                    "Natural Language Processing",
+                    "Computer Vision"
+                ]
+            },
+            "digital": {
+                "title": "Digital Transformation",
+                "description": "Transform your business processes with modern digital solutions.",
+                "features": [
+                    "Process Automation",
+                    "Cloud Migration",
+                    "Digital Strategy"
+                ]
+            },
+            "cyber": {
+                "title": "Cybersecurity",
+                "description": "Comprehensive security solutions to protect your digital assets.",
+                "features": [
+                    "Security Audits",
+                    "Penetration Testing",
+                    "Compliance"
+                ]
+            },
+            "performance": {
+                "title": "Performance Optimization",
+                "description": "Optimize your applications for maximum speed and efficiency.",
+                "features": [
+                    "Code Optimization",
+                    "Database Tuning",
+                    "Caching Strategies"
+                ]
+            },
+            "cloud": {
+                "title": "Cloud Services",
+                "description": "Scalable cloud infrastructure and deployment solutions.",
+                "features": [
+                    "AWS/Azure/GCP",
+                    "DevOps",
+                    "Microservices"
+                ]
+            }
+        },
+        "button": "Learn More"
+    },
+    "statsSection": {
+        "projects": "Projects Completed",
+        "clients": "Happy Clients",
+        "success": "Success Rate",
+        "support": "Support"
+    },
+    "testimonialsSection": {
+        "badge": "Testimonials",
+        "title1": "What Our ",
+        "title2": "Clients Say",
+        "description": "Don't just take our word for it. Here's what industry leaders say about working with DevoSoft."
+    },
+    "ctaSection": {
+        "title": "Ready to Transform Your Business?",
+        "description": "Let's discuss how our innovative solutions can accelerate your digital transformation journey.",
+        "start": "Start Your Project",
+        "schedule": "Schedule Consultation"
+    },
+    "hero": {
+        "title": {
+            "line1": "Digital",
+            "line2": "Innovation",
+            "line3": "Redefined"
+        },
+        "subtitle": "We craft cutting-edge software solutions, AI-powered applications, and digital transformation strategies that propel businesses into the future. Experience innovation like never before.",
+        "buttons": {
+            "startProject": "Start Your Project",
+            "watchDemo": "Watch Demo"
+        },
+        "stats": {
+            "projects": {
+                "value": "500+",
+                "label": "Projects Delivered"
+            },
+            "satisfaction": {
+                "value": "98%",
+                "label": "Client Satisfaction"
+            },
+            "support": {
+                "value": "24/7",
+                "label": "Support Available"
+            }
+        }
+    },
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "portfolio": "Portfolio",
+        "blog": "Blog",
+        "careers": "Careers",
+        "contact": "Contact"
+    },
+    "actions": {
+        "getStarted": "Get Started"
+    },
+    "footer": {
+        "footer_company": {
+            "description": "Cutting-edge IT solutions specializing in software development, AI solutions, and digital transformation."
+        },
+        "footer_quickLinks": {
+            "title": "Quick Links",
+            "about": "About Us",
+            "services": "Our Services",
+            "portfolio": "Portfolio",
+            "careers": "Careers",
+            "blog": "Blog"
+        },
+        "footer_services": {
+            "title": "Services",
+            "software": "Software Development",
+            "ai": "AI Solutions",
+            "digital": "Digital Transformation",
+            "cloud": "Cloud Services",
+            "mobile": "Mobile Apps"
+        },
+        "footer_contact": {
+            "title": "Stay Connected",
+            "email": "info@devosoft.com",
+            "phone": "+1 (555) 123-4567",
+            "location": "San Francisco, CA",
+            "newsletter": "Subscribe to our newsletter",
+            "placeholder": "Enter your email",
+            "subscribe": "Subscribe"
+        },
+        "footer_legal": {
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service",
+            "cookies": "Cookie Policy",
+            "rights": "All rights reserved."
+        }
+    },
+    "testimonials": [
+        {
+            "name": "Sarah Johnson",
+            "role": "CTO, TechCorp",
+            "content": "DevoSoft transformed our entire digital infrastructure. Their AI solutions increased our efficiency by 300%.",
+            "rating": 5,
+            "avatar": "/api/placeholder/64/64"
+        },
+        {
+            "name": "Michael Chen",
+            "role": "Founder, StartupX",
+            "content": "The team at DevoSoft is exceptional. They delivered our project on time and exceeded all expectations.",
+            "rating": 5,
+            "avatar": "/api/placeholder/64/64"
+        },
+        {
+            "name": "Emily Rodriguez",
+            "role": "VP Engineering, InnovateLab",
+            "content": "Outstanding quality and innovative solutions. DevoSoft is our go-to partner for all tech projects.",
+            "rating": 5,
+            "avatar": "/api/placeholder/64/64"
+        }
+    ]
+}

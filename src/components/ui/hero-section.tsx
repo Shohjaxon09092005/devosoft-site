@@ -2,8 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { useTranslation } from "react-i18next";
 // import SplashCursor from './SplashCursor'
 export function HeroSection() {
+  const { t } = useTranslation();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -90,27 +92,23 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
-      
-
           <AnimatedSection animation="slide-up" delay={400}>
             <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
               <span className="bg-gradient-to-r from-foreground via-primary to-purple-600 bg-clip-text text-transparent">
-                Digital
+                {t("hero.title.line1")}
               </span>
               <br />
               <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-                Innovation
+                {t("hero.title.line2")}
               </span>
               <br />
-              <span className="text-foreground">Redefined</span>
+              <span className="text-foreground">{t("hero.title.line3")}</span>
             </h1>
           </AnimatedSection>
 
           <AnimatedSection animation="slide-up" delay={600}>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              We craft cutting-edge software solutions, AI-powered applications,
-              and digital transformation strategies that propel businesses into
-              the future. Experience innovation like never before.
+              {t("hero.subtitle")}
             </p>
           </AnimatedSection>
 
@@ -120,7 +118,7 @@ export function HeroSection() {
                 size="lg"
                 className="bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 text-white px-8 py-3 text-base"
               >
-                Start Your Project
+                {t("hero.buttons.startProject")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button
@@ -129,7 +127,7 @@ export function HeroSection() {
                 className="border-2 hover:bg-muted/50 px-8 py-3 text-base"
               >
                 <Play className="mr-2 h-4 w-4" />
-                Watch Demo
+                {t("hero.buttons.watchDemo")}
               </Button>
             </div>
           </AnimatedSection>
@@ -142,7 +140,7 @@ export function HeroSection() {
                     500+
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Projects Delivered
+                    {t("hero.stats.projects.label")}
                   </div>
                 </div>
               </div>
@@ -152,7 +150,7 @@ export function HeroSection() {
                     98%
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Client Satisfaction
+                    {t("hero.stats.satisfaction.label")}
                   </div>
                 </div>
               </div>
@@ -162,7 +160,7 @@ export function HeroSection() {
                     24/7
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Support Available
+                    {t("hero.stats.support.label")}
                   </div>
                 </div>
               </div>

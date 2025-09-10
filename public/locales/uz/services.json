@@ -1,0 +1,195 @@
+{
+  "hero": {
+    "badge": "Bizning Xizmatlar",
+    "title": "Keng qamrovli",
+    "title_2": "IT yechimlari",
+    "description": "G‘oyadan amalga oshirishgacha, biz innovatsiyalarni tezlashtiradigan va biznesingizni rivojlantiradigan to‘liq IT yechimlarini taqdim etamiz.",
+    "time_line": "Muddat:",
+    "Start": "Boshlanishi:",
+    "button_learn": "Batafsil",
+    "key_features": "Asosiy xususiyatlar",
+    "Technologies": "Texnologiyalar",
+    "Get_Quote": "Iqtibos olish",
+    "Schedule": "Maslahat jadvali"
+  },
+  "list": [
+    {
+      "icon": "Code",
+      "title": "Dasturiy ta'minot ishlab chiqish",
+      "shortDescription": "Eng so‘nggi texnologiyalar va tajriba asosida moslashtirilgan dasturiy yechimlar.",
+      "fullDescription": "Bizning dasturiy ta'minot jamoamiz sizning biznes ehtiyojlaringizga mos maxsus ilovalarni yaratadi. Zamonaviy frameworklardan foydalanamiz, eng yaxshi amaliyotlarni qo‘llaymiz va biznesingiz bilan birga o‘suvchi, barqaror va kengaytiriladigan kodni taqdim etamiz.",
+      "features": [
+        "Full-stack ishlab chiqish",
+        "API integratsiya",
+        "Ma’lumotlar bazasi dizayni",
+        "Mobil ilovalar",
+        "Veb ilovalar",
+        "Desktop ilovalar"
+      ],
+      "technologies": [
+        "React",
+        "Node.js",
+        "Python",
+        "Java",
+        "TypeScript",
+        "PostgreSQL"
+      ],
+      "timeline": "2-6 oy",
+      "startingPrice": "$15,000"
+    },
+    {
+      "icon": "Brain",
+      "title": "AI yechimlari",
+      "shortDescription": "Sun’iy intellekt va mashina o‘rganishga asoslangan aqlli tizimlar.",
+      "fullDescription": "Biznesingizni AI bilan o‘zgartiring. Chatbotlardan tortib prognozli tahlillargacha, jarayonlarni avtomatlashtiradigan va qimmatli tushunchalarni beradigan ilg‘or texnologiyalarni joriy qilamiz.",
+      "features": [
+        "Mashina o‘rganish modellar",
+        "Tabiiy tilni qayta ishlash",
+        "Kompyuter ko‘rish",
+        "Prognozli tahlil",
+        "Chatbotlar va virtual yordamchilar",
+        "AI integratsiya"
+      ],
+      "technologies": [
+        "TensorFlow",
+        "PyTorch",
+        "OpenAI",
+        "Hugging Face",
+        "Python",
+        "Azure AI"
+      ],
+      "timeline": "3-8 oy",
+      "startingPrice": "$25,000"
+    },
+    {
+      "icon": "Rocket",
+      "title": "Raqamli transformatsiya",
+      "shortDescription": "Biznes jarayonlaringizni zamonaviy raqamli yechimlar bilan rivojlantiring.",
+      "fullDescription": "Biznes operatsiyalaringizni raqamli transformatsiya strategiyalari bilan yangilang. Bulut platformalarga ko‘chirish, jarayonlarni avtomatlashtirish va raqamli ish jarayonlarini joriy etishda yordam beramiz.",
+      "features": [
+        "Jarayonlarni avtomatlashtirish",
+        "Bulutga ko‘chirish",
+        "Raqamli strategiya",
+        "Eski tizimlarni modernizatsiya qilish",
+        "Ish oqimini optimallashtirish",
+        "O‘zgarishni boshqarish"
+      ],
+      "technologies": [
+        "AWS",
+        "Azure",
+        "Google Cloud",
+        "Kubernetes",
+        "Docker",
+        "Terraform"
+      ],
+      "timeline": "6-12 oy",
+      "startingPrice": "$50,000"
+    },
+    {
+      "icon": "Shield",
+      "title": "Kiberxavfsizlik",
+      "shortDescription": "Raqamli aktivlaringizni himoya qiluvchi xavfsizlik yechimlari.",
+      "fullDescription": "Biznesingizni yuqori darajadagi xavfsizlik choralari bilan himoya qiling. Mutaxassislarimiz xavfsizlik auditlarini o‘tkazadi va kuchli xavfsizlik choralarini joriy qiladi.",
+      "features": [
+        "Xavfsizlik auditi",
+        "Penetratsion test",
+        "Moslik konsaltingi",
+        "Xavfsizlik bo‘yicha treninglar",
+        "Hodisaga javob",
+        "Monitoring"
+      ],
+      "technologies": [
+        "Kali Linux",
+        "Metasploit",
+        "Wireshark",
+        "OWASP",
+        "ISO 27001",
+        "GDPR"
+      ],
+      "timeline": "1-4 oy",
+      "startingPrice": "$10,000"
+    },
+    {
+      "icon": "Zap",
+      "title": "Ishlash samaradorligini optimallashtirish",
+      "shortDescription": "Ilovalaringizni maksimal tezlik va samaradorlik uchun optimallashtiring.",
+      "fullDescription": "Biz ilovangiz ishlashini tezlashtirish uchun kodni optimallashtiramiz, bottlenecklarni yo‘q qilamiz va caching strategiyalarini joriy qilamiz.",
+      "features": [
+        "Kod optimallashtirish",
+        "Ma’lumotlar bazasini sozlash",
+        "Caching strategiyalari",
+        "Yuk balanslash",
+        "CDN joriy qilish",
+        "Monitoring"
+      ],
+      "technologies": [
+        "Redis",
+        "Elasticsearch",
+        "New Relic",
+        "DataDog",
+        "CloudFlare",
+        "Nginx"
+      ],
+      "timeline": "1-3 oy",
+      "startingPrice": "$8,000"
+    },
+    {
+      "icon": "Globe",
+      "title": "Bulut xizmatlari",
+      "shortDescription": "Masshtablanadigan bulut infratuzilmasi va deploy yechimlari.",
+      "fullDescription": "Bulut texnologiyalarining qudratidan foydalaning. Migratsiyadan tortib boshqaruvgacha, barqaror va masshtablanadigan infratuzilmani qurishda yordam beramiz.",
+      "features": [
+        "Bulut arxitekturasi",
+        "DevOps joriy qilish",
+        "Mikroxizmatlar",
+        "Konteyner orkestratsiyasi",
+        "Serverless computing",
+        "Bulut xavfsizligi"
+      ],
+      "technologies": [
+        "AWS",
+        "Azure",
+        "GCP",
+        "Kubernetes",
+        "Docker",
+        "Jenkins"
+      ],
+      "timeline": "2-6 oy",
+      "startingPrice": "$20,000"
+    }
+  ],
+  "process": {
+    "title": "Bizning jarayon",
+    "description": "Biz sinovdan o‘tgan metodologiya asosida muvaffaqiyatli natijalarni taqdim etamiz.",
+    "steps": [
+      {
+        "step": "01",
+        "title": "Kashfiyot",
+        "description": "Talablaringizni tahlil qilib, biznes maqsadlaringizni tushunamiz."
+      },
+      {
+        "step": "02",
+        "title": "Rejalashtirish",
+        "description": "Loyiha yo‘l xaritasini muddatlar va bosqichlar bilan yaratamiz."
+      },
+      {
+        "step": "03",
+        "title": "Ishlab chiqish",
+        "description": "Agile metodologiyasi va eng yaxshi amaliyotlar bilan yechimingizni quramiz."
+      },
+      {
+        "step": "04",
+        "title": "Yetkazib berish",
+        "description": "Deploy qilamiz, test qilamiz va doimiy qo‘llab-quvvatlaymiz."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Boshlashga tayyormisiz?",
+    "description": "Loyiha talablaringizni muhokama qilaylik va biznesingiz uchun eng yaxshi yechimni topamiz.",
+    "buttons": {
+      "consultation": "Bepul konsultatsiya olish",
+      "portfolio": "Portfolio bilan tanishing"
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "hero": {
+    "badge": "About DevoSoft",
+    "title": "Crafting the",
+    "title2":"Future",
+    "title3":"of Technology",
+    "description": "Founded in 2020, DevoSoft has been at the forefront of digital innovation, helping businesses transform their operations through cutting-edge technology solutions."
+  },
+  "story": {
+    "title": "Our Story",
+    "paragraphs": {
+      "paragraph1":"DevoSoft was born from a simple belief: technology should empower businesses to achieve the impossible. What started as a small team of passionate developers has grown into a full-service digital transformation partner.",
+      "paragraph2":"We've helped over 150 companies across various industries leverage the power of AI, cloud computing, and modern software development practices to accelerate their growth and stay ahead of the competition.",
+      "paragraph3":"Today, we continue to push the boundaries of what's possible, always staying at the cutting edge of technology trends and best practices."
+    },
+    "stats": {
+      "projects": "500+",
+      "projectsLabel": "Projects",
+      "clients": "150+",
+      "clientsLabel": "Clients",
+      "years": "4",
+      "yearsLabel": "Years"
+    },
+    "award": {
+      "title": "Award Winning",
+      "subtitle": "Digital Solutions"
+    }
+  },
+     "values": {
+    "title": "Our Values",
+    "description": "These core principles guide everything we do and shape how we approach every project and client relationship.",
+    "list": [
+      {
+        "title": "Innovation First",
+        "description": "We constantly push the boundaries of technology to deliver cutting-edge solutions that give our clients a competitive advantage."
+      },
+      {
+        "title": "Transparency",
+        "description": "Open communication and honest feedback are at the core of our client relationships. We believe in complete transparency throughout every project."
+      },
+      {
+        "title": "Quality Obsessed",
+        "description": "Every line of code, every design element, and every user interaction is crafted with meticulous attention to detail and quality."
+      },
+      {
+        "title": "Collaborative",
+        "description": "We work as an extension of your team, fostering collaboration and knowledge sharing to achieve the best possible outcomes."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Our Expertise",
+    "description": "Our team combines years of experience with cutting-edge technologies to deliver exceptional results across multiple domains.",
+    "list": [
+      { "name": "Software Development", "percentage": 95 },
+      { "name": "AI & Machine Learning", "percentage": 90 },
+      { "name": "Cloud Architecture", "percentage": 92 },
+      { "name": "UI/UX Design", "percentage": 88 },
+      { "name": "DevOps & Automation", "percentage": 85 },
+      { "name": "Cybersecurity", "percentage": 87 }
+    ],
+    "stats": {
+      "technologies": "50+",
+      "technologiesLabel": "Technologies",
+      "successRate": "95%",
+      "successRateLabel": "Success Rate",
+      "support": "24/7",
+      "supportLabel": "Support",
+      "satisfaction": "100%",
+      "satisfactionLabel": "Satisfaction"
+    }
+  },
+  "team": {
+    "title": "Meet Our Team",
+    "description": "The brilliant minds behind DevoSoft's innovative solutions. Each team member brings unique expertise and passion to every project.",
+    "list": [
+      {
+        "name": "Alex Rodriguez",
+        "role": "CEO & Founder",
+        "bio": "15+ years in tech, former Microsoft engineer, passionate about AI and digital transformation.",
+        "skills": ["Leadership", "Strategy", "AI/ML"]
+      },
+      {
+        "name": "Sarah Chen",
+        "role": "CTO",
+        "bio": "Full-stack architect with expertise in cloud technologies and scalable system design.",
+        "skills": ["Architecture", "Cloud", "DevOps"]
+      },
+      {
+        "name": "Michael Torres",
+        "role": "Head of AI",
+        "bio": "PhD in Computer Science, specialized in machine learning and neural networks.",
+        "skills": ["AI/ML", "Python", "TensorFlow"]
+      },
+      {
+        "name": "Emily Johnson",
+        "role": "Design Director",
+        "bio": "Award-winning designer with a passion for creating intuitive and beautiful user experiences.",
+        "skills": ["UI/UX", "Design Systems", "Prototyping"]
+      }
+    ]
+  }
+ 
+}

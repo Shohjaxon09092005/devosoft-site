@@ -1,0 +1,179 @@
+{
+    "servicesSection": {
+        "badge": "Bizning xizmatlar",
+        "title": "Keng qamrovli IT yechimlar",
+        "description": "G‘oyadan tortib to joriy etishgacha, biz innovatsiyani qo‘llab-quvvatlaydigan va biznesingiz o‘sishini tezlashtiradigan to‘liq texnologik yechimlarni taqdim etamiz.",
+        "services": {
+            "software": {
+                "title": "Dasturiy ta'minot ishlab chiqish",
+                "description": "Zamonaviy texnologiyalar va eng yaxshi tajribalar asosida maxsus dasturiy yechimlar.",
+                "features": [
+                    "Full-stack ishlab chiqish",
+                    "API integratsiya",
+                    "Ma'lumotlar bazasi dizayni"
+                ]
+            },
+            "ai": {
+                "title": "Sun'iy intellekt yechimlari",
+                "description": "Mashinalar o‘rganishi va sun'iy intellekt asosida ishlaydigan aqlli tizimlar.",
+                "features": [
+                    "Mashinaviy o‘rganish",
+                    "Tabiiy tilni qayta ishlash",
+                    "Kompyuter ko‘rishi"
+                ]
+            },
+            "digital": {
+                "title": "Raqamli transformatsiya",
+                "description": "Biznes jarayonlaringizni zamonaviy raqamli yechimlar bilan o‘zgartiring.",
+                "features": [
+                    "Jarayonlarni avtomatlashtirish",
+                    "Cloud migratsiya",
+                    "Raqamli strategiya"
+                ]
+            },
+            "cyber": {
+                "title": "Kiberxavfsizlik",
+                "description": "Raqamli aktivlaringizni himoya qilish uchun kompleks xavfsizlik yechimlari.",
+                "features": [
+                    "Xavfsizlik auditi",
+                    "Penetratsion test",
+                    "Moslashuv va standartlar"
+                ]
+            },
+            "performance": {
+                "title": "Ishlashni optimallashtirish",
+                "description": "Ilovalaringizni maksimal tezlik va samaradorlik uchun optimallashtiring.",
+                "features": [
+                    "Kod optimizatsiyasi",
+                    "Ma'lumotlar bazasini sozlash",
+                    "Keshlash strategiyalari"
+                ]
+            },
+            "cloud": {
+                "title": "Cloud xizmatlari",
+                "description": "Masshtablanuvchi cloud infratuzilmasi va joylashtirish yechimlari.",
+                "features": [
+                    "AWS/Azure/GCP",
+                    "DevOps",
+                    "Mikroxizmatlar"
+                ]
+            }
+        },
+        "button": "Batafsil"
+    },
+    "statsSection": {
+        "projects": "Bajarilgan loyihalar",
+        "clients": "Mamnun mijozlar",
+        "success": "Muvaffaqiyat darajasi",
+        "support": "Qo‘llab-quvvatlash"
+    },
+    "testimonialsSection": {
+        "badge": "Mijozlar fikri",
+        "title1": "Mijozlarimiz",
+        "title2": " nima deydi",
+        "description": "Bizning so‘zimizga ishonibgina qolmang. DevoSoft bilan ishlagan sanoat yetakchilarining fikrlari."
+    },
+    "ctaSection": {
+        "title": "Biznesingizni transformatsiya qilishga tayyormisiz?",
+        "description": "Keling, bizning innovatsion yechimlarimiz sizning raqamli transformatsiya yo‘lingizni qanday tezlashtirishini muhokama qilamiz.",
+        "start": "Loyihangizni boshlang",
+        "schedule": "Konsultatsiya belgilang"
+    },
+    "hero": {
+        "title": {
+            "line1": "Raqamli",
+            "line2": "Innovatsiya",
+            "line3": "Qayta talqin"
+        },
+        "subtitle": "Biz zamonaviy dasturiy yechimlar, sun’iy intellektga asoslangan ilovalar va biznesni kelajakka olib chiqadigan raqamli transformatsiya strategiyalarini ishlab chiqamiz. Innovatsiyani hech qachon bo‘lmaganidek his eting.",
+        "buttons": {
+            "startProject": "Loyihani boshlash",
+            "watchDemo": "Demoni ko‘rish"
+        },
+        "stats": {
+            "projects": {
+                "value": "500+",
+                "label": "Yakunlangan loyihalar"
+            },
+            "satisfaction": {
+                "value": "98%",
+                "label": "Mijozlar mamnunligi"
+            },
+            "support": {
+                "value": "24/7",
+                "label": "Doimiy qo‘llab-quvvatlash"
+            }
+        }
+    },
+    "nav": {
+        "home": "Bosh sahifa",
+        "about": "Biz haqimizda",
+        "services": "Xizmatlar",
+        "portfolio": "Portfolio",
+        "blog": "Blog",
+        "careers": "Karyera",
+        "contact": "Aloqa"
+    },
+    "actions": {
+        "getStarted": "Boshlash"
+    },
+    "footer": {
+        "footer_company": {
+            "description": "Dasturiy ta'minot ishlab chiqish, sun'iy intellekt yechimlari va raqamli transformatsiyaga ixtisoslashgan zamonaviy IT yechimlari."
+        },
+        "footer_quickLinks": {
+            "title": "Tezkor havolalar",
+            "about": "Biz haqimizda",
+            "services": "Xizmatlarimiz",
+            "portfolio": "Portfolio",
+            "careers": "Karyera",
+            "blog": "Blog"
+        },
+        "footer_services": {
+            "title": "Xizmatlar",
+            "software": "Dasturiy ta'minot ishlab chiqish",
+            "ai": "Sun'iy intellekt yechimlari",
+            "digital": "Raqamli transformatsiya",
+            "cloud": "Bulutli xizmatlar",
+            "mobile": "Mobil ilovalar"
+        },
+        "footer_contact": {
+            "title": "Biz bilan bog‘laning",
+            "email": "info@devosoft.com",
+            "phone": "+998 (90) 123-45-67",
+            "location": "Toshkent, O‘zbekiston",
+            "newsletter": "Yangiliklarga obuna bo‘ling",
+            "placeholder": "Emailingizni kiriting",
+            "subscribe": "Obuna bo‘lish"
+        },
+        "footer_legal": {
+            "privacy": "Maxfiylik siyosati",
+            "terms": "Xizmat ko‘rsatish shartlari",
+            "cookies": "Cookie siyosati",
+            "rights": "Barcha huquqlar himoyalangan."
+        }
+    },
+    "testimonials": [
+        {
+            "name": "Sarah Johnson",
+            "role": "Texnik direktor, TechCorp",
+            "content": "DevoSoft bizning butun raqamli infratuzilmamizni o‘zgartirdi. Ularning AI yechimlari samaradorligimizni 300% ga oshirdi.",
+            "rating": 5,
+            "avatar": "/api/placeholder/64/64"
+        },
+        {
+            "name": "Michael Chen",
+            "role": "Asoschi, StartupX",
+            "content": "DevoSoft jamoasi zo‘r. Ular loyihamizni o‘z vaqtida topshirib, barcha kutganlarimizdan oshib ketishdi.",
+            "rating": 5,
+            "avatar": "/api/placeholder/64/64"
+        },
+        {
+            "name": "Emily Rodriguez",
+            "role": "Muhandislik bo‘limi VP, InnovateLab",
+            "content": "Yuqori sifat va innovatsion yechimlar. DevoSoft bizning barcha texnologik loyihalarimiz uchun ishonchli hamkorimiz.",
+            "rating": 5,
+            "avatar": "/api/placeholder/64/64"
+        }
+    ]
+}

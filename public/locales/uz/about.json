@@ -1,0 +1,137 @@
+{
+  "hero": {
+    "badge": "DevoSoft haqida",
+    "title": "Texnologiyaning",
+    "title2": "Kelajagini",
+    "title3": "yaratamiz",
+    "description": "2020-yilda tashkil etilgan DevoSoft raqamli innovatsiyalarning old qatorida bo‘lib, bizneslarni ilg‘or texnologik yechimlar orqali transformatsiya qilishga yordam berib kelmoqda."
+  },
+  "story": {
+    "title": "Bizning hikoyamiz",
+    "paragraphs": {
+      "paragraph1": "DevoSoft oddiy bir e’tiqoddan tug‘ildi: texnologiya bizneslarni imkonsiz narsalarga erishtirishi kerak. Dastlab kichik jamoa sifatida boshlanganimiz bugungi kunda to‘liq xizmat ko‘rsatuvchi raqamli transformatsiya hamkoriga aylandik.",
+      "paragraph2": "Biz 150 dan ortiq kompaniyaga turli sohalarda AI, bulutli hisoblash va zamonaviy dasturiy ta’minot amaliyotlarini joriy etishda yordam berdik, bu esa ularning rivojlanishini tezlashtirdi va raqobatchilardan oldinda bo‘lishiga imkon yaratdi.",
+      "paragraph3": "Bugungi kunda biz imkoniyatlar chegaralarini kengaytirishda davom etamiz va doimo zamonaviy texnologiya tendensiyalari va eng yaxshi tajribalar bilan hamnafasmiz."
+    },
+    "stats": {
+      "projects": "500+",
+      "projectsLabel": "Loyihalar",
+      "clients": "150+",
+      "clientsLabel": "Mijozlar",
+      "years": "4",
+      "yearsLabel": "Yillar"
+    },
+    "award": {
+      "title": "Mukofotli",
+      "subtitle": "Raqamli yechimlar"
+    }
+  },
+  "values": {
+    "title": "Bizning qadriyatlarimiz",
+    "description": "Ushbu asosiy tamoyillar biz qilayotgan hamma ishimizni boshqaradi va har bir loyiha hamda mijoz bilan munosabatimizni shakllantiradi.",
+    "list": [
+      {
+        "title": "Innovatsiya birinchi o‘rinda",
+        "description": "Biz texnologiya chegaralarini doimiy ravishda kengaytirib, mijozlarimizga raqobat ustunligini beradigan ilg‘or yechimlarni taqdim etamiz."
+      },
+      {
+        "title": "Shaffoflik",
+        "description": "Ochiq muloqot va halol fikr bildirish mijozlarimiz bilan munosabatlarimizning asosida yotadi. Biz har bir loyihada to‘liq shaffoflikka ishonamiz."
+      },
+      {
+        "title": "Sifatga e’tibor",
+        "description": "Har bir kod qatori, har bir dizayn elementi va foydalanuvchi bilan har bir o‘zaro aloqada mukammal sifat va detallarga e’tibor bilan ishlaymiz."
+      },
+      {
+        "title": "Hamkorlik",
+        "description": "Biz sizning jamoangizning davomi sifatida ishlaymiz va eng yaxshi natijalarga erishish uchun hamkorlik va bilim almashinuvini rivojlantiramiz."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Bizning tajribamiz",
+    "description": "Bizning jamoamiz ko‘p yillik tajribani ilg‘or texnologiyalar bilan birlashtirib, turli yo‘nalishlarda ajoyib natijalarni taqdim etadi.",
+    "list": [
+      {
+        "name": "Dasturiy ta’minot ishlab chiqish",
+        "percentage": 95
+      },
+      {
+        "name": "AI va Mashinali o‘rganish",
+        "percentage": 90
+      },
+      {
+        "name": "Bulutli arxitektura",
+        "percentage": 92
+      },
+      {
+        "name": "UI/UX dizayn",
+        "percentage": 88
+      },
+      {
+        "name": "DevOps va Avtomatlashtirish",
+        "percentage": 85
+      },
+      {
+        "name": "Kiberxavfsizlik",
+        "percentage": 87
+      }
+    ],
+    "stats": {
+      "technologies": "50+",
+      "technologiesLabel": "Texnologiyalar",
+      "successRate": "95%",
+      "successRateLabel": "Muvaffaqiyat darajasi",
+      "support": "24/7",
+      "supportLabel": "Qo‘llab-quvvatlash",
+      "satisfaction": "100%",
+      "satisfactionLabel": "Qoniqish"
+    }
+  },
+  "team": {
+    "title": "Bizning jamoamiz bilan tanishing",
+    "description": "DevoSoft’ning innovatsion yechimlari ortidagi iste’dodli insonlar. Har bir jamoa a’zosi o‘ziga xos tajriba va ishtiyoqni har bir loyihaga olib keladi.",
+    "list": [
+      {
+        "name": "Alex Rodriguez",
+        "role": "CEO va Asoschi",
+        "bio": "Texnologiyada 15+ yillik tajriba, sobiq Microsoft muhandisi, AI va raqamli transformatsiyaga qiziqadi.",
+        "skills": [
+          "Liderlik",
+          "Strategiya",
+          "AI/ML"
+        ]
+      },
+      {
+        "name": "Sarah Chen",
+        "role": "CTO",
+        "bio": "Bulut texnologiyalari va kengaytiriladigan tizim dizaynida tajribaga ega full-stack arxitektor.",
+        "skills": [
+          "Arxitektura",
+          "Bulut",
+          "DevOps"
+        ]
+      },
+      {
+        "name": "Michael Torres",
+        "role": "AI bo‘lim boshlig‘i",
+        "bio": "Kompyuter fanlari bo‘yicha PhD, mashinali o‘rganish va neyron tarmoqlar bo‘yicha mutaxassis.",
+        "skills": [
+          "AI/ML",
+          "Python",
+          "TensorFlow"
+        ]
+      },
+      {
+        "name": "Emily Johnson",
+        "role": "Dizayn direktori",
+        "bio": "Mukofotli dizayner, intuitiv va chiroyli foydalanuvchi tajribalarini yaratishga qiziqadi.",
+        "skills": [
+          "UI/UX",
+          "Dizayn tizimlari",
+          "Prototiplash"
+        ]
+      }
+    ]
+  }
+}
