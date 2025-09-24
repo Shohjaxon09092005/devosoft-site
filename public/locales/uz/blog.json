@@ -39,15 +39,8 @@
         "button": "Obuna bo‘lish"
     },
     "portfolio": {
-        "tags": [
-            "Barchasi",
-            "AI/ML",
-            "Veb Dasturlash",
-            "Bulut",
-            "Mobil",
-            "Kiberxavfsizlik",
-            "DevOps"
-        ],
+        "tags": "Barchasi",
+          
         "blogPosts": [
             {
                 "id": 1,

@@ -41,6 +41,7 @@
     "fields": {
       "firstName": "Ism",
       "lastName": "Familiya",
+      "phone_number": "Telefon nomer",
       "email": "Email",
       "company": "Kompaniya",
       "service": "Qiziqayotgan xizmat",
@@ -70,7 +71,7 @@
     "icon": "MapPin"
   },
   "offices": {
-    "title": "Global ofislarimiz",
+    "title": "Bizning manzilimiz",
     "description": "Mijozlarimizga yanada qulay xizmat ko‘rsatish uchun butun dunyo bo‘ylab ofislarimiz mavjud.",
     "items": [
       {

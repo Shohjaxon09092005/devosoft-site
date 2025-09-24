@@ -3,12 +3,43 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 // import SplashCursor from './SplashCursor'
+
+interface Field {
+  notes: string;
+  created_at: string;
+  updated_at: string;
+  title: string | null;
+  title_uz: string | null;
+  title_en: string | null;
+  title_ru: string | null;
+  value: string | null;
+  value_uz: string | null;
+  value_en: string | null;
+  value_ru: string | null;
+  description: string | null;
+  description_uz: string | null;
+  description_en: string | null;
+  description_ru: string | null;
+}
+
+interface ApiResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Field[];
+}
+
 export function HeroSection() {
   const { t } = useTranslation();
+  const { i18n } = useTranslation();
+  const navigate = useNavigate();
+  const currentLang = i18n.language;
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
-
+  const [fields, setFields] = useState<Field[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -62,6 +93,41 @@ export function HeroSection() {
       });
     };
   }, []);
+  // API
+  useEffect(() => {
+    fetch("/api/v1/fields/")
+      .then((res) => res.json())
+      .then((data: ApiResponse) => {
+        const sorted = [...data.results].sort(
+          (a, b) =>
+            new Date(a.created_at).getTime() -
+            new Date(b.created_at).getTime()
+        );
+        setFields(sorted);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("API xatolik:", error);
+        setLoading(false);
+      });
+  }, []);
+  const getLocalizedText = (item: Field, field: "title" | "value") => {
+    switch (currentLang) {
+      case "uz":
+        return item[`${field}_uz` as keyof Field];
+      case "ru":
+        return item[`${field}_ru` as keyof Field];
+      case "en":
+        return item[`${field}_en` as keyof Field];
+      default:
+        return item[field]; // default
+    }
+  };
+
+  const goToAbout = () => {
+    navigate("/contact#form");
+  };
+  if (loading) return <p>Yuklanmoqda...</p>;
 
   return (
     <section
@@ -114,7 +180,9 @@ export function HeroSection() {
 
           <AnimatedSection animation="slide-up" delay={800}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+              
               <Button
+                onClick={goToAbout}
                 size="lg"
                 className="bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 text-white px-8 py-3 text-base"
               >
@@ -127,52 +195,29 @@ export function HeroSection() {
                 className="border-2 hover:bg-muted/50 px-8 py-3 text-base"
               >
                 <Play className="mr-2 h-4 w-4" />
-                {t("hero.buttons.watchDemo")}
+                <a href="https://devosoft.osson.uz/" target="_blank" rel="noopener noreferrer">{t("hero.buttons.watchDemo")}</a>
               </Button>
             </div>
           </AnimatedSection>
 
           <AnimatedSection animation="fade-in" delay={1000}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-              <div className="group cursor-pointer">
-                <div className="bg-gradient-to-br from-card to-muted/30 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2">
-                  <div className="text-3xl font-bold text-primary mb-2">
-                    500+
+              {fields.slice(0, 3).map((item, index) => {
+                return (
+                  <div key={index} className="group cursor-pointer">
+                    <div className="bg-gradient-to-br from-card to-muted/30 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2">
+                      <div className="text-3xl font-bold text-primary mb-2">
+                        {getLocalizedText(item, "value")}
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        {getLocalizedText(item, "title")}
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-sm text-muted-foreground">
-                    {t("hero.stats.projects.label")}
-                  </div>
-                </div>
-              </div>
-              <div className="group cursor-pointer">
-                <div className="bg-gradient-to-br from-card to-muted/30 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2">
-                  <div className="text-3xl font-bold text-primary mb-2">
-                    98%
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    {t("hero.stats.satisfaction.label")}
-                  </div>
-                </div>
-              </div>
-              <div className="group cursor-pointer">
-                <div className="bg-gradient-to-br from-card to-muted/30 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2">
-                  <div className="text-3xl font-bold text-primary mb-2">
-                    24/7
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    {t("hero.stats.support.label")}
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </AnimatedSection>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-muted-foreground/50 rounded-full animate-bounce mt-2" />
         </div>
       </div>
 

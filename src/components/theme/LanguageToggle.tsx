@@ -7,13 +7,24 @@ export function LanguageToggle() {
   const { i18n } = useTranslation();
 
   const toggleLanguage = () => {
-    const newLang = i18n.language === "en" ? "uz" : "en";
+    let newLang;
+    if (i18n.language === "en") {
+      newLang = "ru"; // inglizdan rusga
+    } else if (i18n.language === "ru") {
+      newLang = "uz"; // rusdan o‘zbekka
+    } else {
+      newLang = "en"; // o‘zbekdan inglizga
+    }
     i18n.changeLanguage(newLang);
   };
 
   return (
     <Button variant="outline" size="sm" onClick={toggleLanguage}>
-      {i18n.language === "uz" ? "🇺🇿 UZ" : "🇬🇧 EN"}
+      {i18n.language === "uz"
+        ? "🇺🇿 UZ"
+        : i18n.language === "ru"
+        ? "🇷🇺 RU"
+        : "🇬🇧 EN"}
     </Button>
   );
 }

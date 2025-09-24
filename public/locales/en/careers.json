@@ -3,10 +3,10 @@
     "hero": {
       "badge": "Join Our Team",
       "title": "Build the",
-      "title2":"Future",
-      "title3":"With Us",
+      "title2": "Future",
+      "title3": "With Us",
       "description": "Join a team of passionate innovators who are shaping the future of technology. Find your next opportunity to make a meaningful impact.",
-      "apply":"Apply Now"
+      "apply": "Apply Now"
     },
     "benefitsSection": {
       "title": "Why Work With Us?",
@@ -120,6 +120,21 @@
       "title": "Don't See the Right Role?",
       "description": "We're always looking for talented individuals. Send us your resume and let us know how you'd like to contribute.",
       "button": "Send Your Resume"
+    },
+    "form": {
+      "full_name": "Full Name",
+      "full_nameP": "Full Name",
+      "Email": "Email",
+      "EmailP": "email@example.com",
+      "phone_number": "Phone Number",
+      "phone_numberP": "+1 234 567 890",
+      "Resume": "Resume",
+      "description": "Additional Information",
+      "descriptionP": "Write briefly about yourself...",
+      "dialog": "Fill out the form below and submit your resume.",
+      "out_btn": "Cancel",
+      "start_btn": "Send",
+      "file_btn":"Choosing a resume"
     }
   }
 }

@@ -13,14 +13,9 @@
     },
     "filter": {
         "label": "Filtrlash:",
-        "categories": [
-            "Hammasi",
-            "Veb Dasturlash",
-            "AI/ML",
-            "Mobil Ilovalar",
-            "Bulutli Yechimlar",
-            "E-commerce"
-        ]
+        "categories": 
+            "Hammasi"
+            
     },
     "projects": [
         {

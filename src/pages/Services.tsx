@@ -31,6 +31,56 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import * as Icons from "lucide-react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+interface Technology {
+  title: string;
+  title_uz: string | null;
+  title_en: string | null;
+  title_ru: string | null;
+  description: string | null;
+  description_uz: string | null;
+  description_en: string | null;
+  description_ru: string | null;
+}
+
+interface Feature {
+  title: string;
+  title_uz: string | null;
+  title_en: string | null;
+  title_ru: string | null;
+  description: string | null;
+  description_uz: string | null;
+  description_en: string | null;
+  description_ru: string | null;
+}
+
+interface Service {
+  id: string;
+  technologies: Technology[];
+  features: Feature[];
+  notes: string;
+  created_at: string;
+  updated_at: string;
+  icon: string;
+  title: string | null;
+  title_uz: string | null;
+  title_en: string | null;
+  title_ru: string | null;
+  description: string | null;
+  description_uz: string | null;
+  description_en: string | null;
+  description_ru: string | null;
+  timeline: string;
+  starting_price: number;
+}
+
+interface ApiResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Service[];
+}
 export default function Services() {
   const { t } = useTranslation("services");
   const services = t("list", { returnObjects: true }) as Array<{
@@ -43,12 +93,40 @@ export default function Services() {
     features: string[];
     technologies: string[];
   }>;
-  const step=t("process.steps",{returnObjects:true}) as Array<{
-    step:string;
-    title:string;
-    description:string;
-  }>
+  const step = t("process.steps", { returnObjects: true }) as Array<{
+    step: string;
+    title: string;
+    description: string;
+  }>;
+  const [services_data, setServices_data] = useState<Service[]>([]);
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
+  const navigate = useNavigate();
+  const onGopage = () => {
+    navigate("/contact");
+  };
+  const onGopagePortfolio = () => {
+    navigate("/portfolio");
+  };
 
+  // API integration
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const res = await fetch("/api/v1/services/");
+        const data: ApiResponse = await res.json();
+        setServices_data(data.results);
+      } catch (err) {
+        console.error("API xatolik:", err);
+      }
+    };
+
+    fetchServices();
+  }, []);
+  console.log(services_data);
+  function truncate(text: string, length: number) {
+    return text.length > length ? text.slice(0, length) + "..." : text;
+  }
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
@@ -74,29 +152,41 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20">
+      <section id="service" className="py-20">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const Icon = Icons[service.icon] as React.ComponentType<{
-                className?: string;
-              }>;
+            {services_data.map((service, index) => {
               return (
                 <AnimatedSection
-                  key={service.title}
+                  key={service.id}
                   animation="slide-up"
                   delay={index * 100}
                 >
                   <Card className="group h-full border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 bg-gradient-to-br from-card to-muted/30 backdrop-blur-sm">
                     <CardHeader>
                       <div className="w-12 h-12 bg-gradient-to-r from-primary to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="h-6 w-6 text-white" />
+                        <img
+                          src={service.icon}
+                          alt={service.title || ""}
+                          className="h-100% w-100% object-contain"
+                        />
                       </div>
                       <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                        {service.title}
+                        {lang === "uz"
+                          ? service.title_uz
+                          : lang === "en"
+                          ? service.title_en
+                          : service.title}
                       </CardTitle>
                       <CardDescription className="text-muted-foreground">
-                        {service.shortDescription}
+                        {truncate(
+                          lang === "uz"
+                            ? service.description_uz || ""
+                            : lang === "en"
+                            ? service.description_en || ""
+                            : service.description || "",
+                          120
+                        )}
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
@@ -107,7 +197,7 @@ export default function Services() {
                         </div>
                         <div className="flex items-center text-sm text-muted-foreground">
                           <DollarSign className="h-4 w-4 mr-2" />
-                          {t("hero.Start")} {service.startingPrice}
+                          {t("hero.Start")} ${service.starting_price}
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
@@ -120,45 +210,67 @@ export default function Services() {
                             <DialogHeader>
                               <DialogTitle className="flex items-center text-2xl">
                                 <div className="w-8 h-8 bg-gradient-to-r from-primary to-purple-600 rounded-lg flex items-center justify-center mr-3">
-                                  <Icon className="h-6 w-6 text-white" />
+                                  <img
+                                    src={service.icon}
+                                    alt={service.title || ""}
+                                    className="h-6 w-6 object-contain"
+                                  />
                                 </div>
-                                {service.title}
+                                {lang === "uz"
+                                  ? service.title_uz
+                                  : lang === "en"
+                                  ? service.title_en
+                                  : service.title}
                               </DialogTitle>
                               <DialogDescription className="text-base leading-relaxed">
-                                {service.fullDescription}
+                                {lang === "uz"
+                                  ? service.description_uz
+                                  : lang === "en"
+                                  ? service.description_en
+                                  : service.description}
                               </DialogDescription>
                             </DialogHeader>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                              {/* Features */}
                               <div>
                                 <h4 className="font-semibold mb-3 flex items-center">
                                   <CheckCircle className="h-4 w-4 mr-2 text-primary" />
                                   {t("hero.key_features")}
                                 </h4>
                                 <ul className="space-y-2">
-                                  {service.features.map((feature) => (
+                                  {service.features.map((feature, i) => (
                                     <li
-                                      key={feature}
+                                      key={i}
                                       className="flex items-center text-sm text-muted-foreground"
                                     >
                                       <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3" />
-                                      {feature}
+                                      {lang === "uz"
+                                        ? feature.title_uz
+                                        : lang === "en"
+                                        ? feature.title_en
+                                        : feature.title}
                                     </li>
                                   ))}
                                 </ul>
                               </div>
+                              {/* Technologies */}
                               <div>
                                 <h4 className="font-semibold mb-3 flex items-center">
                                   <Zap className="h-4 w-4 mr-2 text-primary" />
                                   {t("hero.Technologies")}
                                 </h4>
                                 <div className="flex flex-wrap gap-2">
-                                  {service.technologies.map((tech) => (
+                                  {service.technologies.map((tech, i) => (
                                     <Badge
-                                      key={tech}
+                                      key={i}
                                       variant="secondary"
                                       className="text-xs"
                                     >
-                                      {tech}
+                                      {lang === "uz"
+                                        ? tech.title_uz
+                                        : lang === "en"
+                                        ? tech.title_en
+                                        : tech.title}
                                     </Badge>
                                   ))}
                                 </div>
@@ -172,20 +284,20 @@ export default function Services() {
                                   <div className="flex items-center text-sm">
                                     <DollarSign className="h-4 w-4 mr-2 text-primary" />
                                     <span className="font-medium">
-                                      {service.startingPrice}
+                                      ${service.starting_price}
                                     </span>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                            <div className="flex gap-4 mt-8">
+                            {/* <div className="flex gap-4 mt-8">
                               <Button className="flex-1 bg-gradient-to-r from-primary to-purple-600">
                                 {t("hero.Get_Quote")}
                               </Button>
                               <Button variant="outline" className="flex-1">
                                 {t("hero.Schedule")}
                               </Button>
-                            </div>
+                            </div> */}
                           </DialogContent>
                         </Dialog>
                       </div>
@@ -202,7 +314,9 @@ export default function Services() {
       <section className="py-20 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection animation="fade-in" className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">{t("process.title")}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              {t("process.title")}
+            </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               {t("process.description")}
             </p>
@@ -247,6 +361,7 @@ export default function Services() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button
+                    onClick={onGopage}
                     size="lg"
                     variant="secondary"
                     className="bg-white text-primary hover:bg-white/90"
@@ -255,6 +370,7 @@ export default function Services() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                   <Button
+                    onClick={onGopagePortfolio}
                     size="lg"
                     variant="outline"
                     className="border-white text-white hover:bg-white/10"

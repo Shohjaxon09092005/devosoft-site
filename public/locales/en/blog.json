@@ -39,15 +39,9 @@
         "button": "Subscribe"
     },
     "portfolio": {
-        "tags": [
+        "tags":
             "All",
-            "AI/ML",
-            "Web Development",
-            "Cloud",
-            "Mobile",
-            "Cybersecurity",
-            "DevOps"
-        ],
+            
         "blogPosts": [
             {
                 "id": 1,

@@ -30,6 +30,9 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import * as Icons from "lucide-react";
+import { useEffect, useState } from "react";
+import { Copy } from "lucide-react";
+import MapComponent from "@/components/ui/MapComponent";
 type contactInfo = {
   icon: string;
   title: string;
@@ -41,6 +44,14 @@ type Services = {
   value: string;
   label: string;
 };
+type Service = {
+  id: string;
+  title: string;
+  title_uz: string | null;
+  title_en: string | null;
+  title_ru: string | null;
+};
+
 type FAQ = {
   question: string;
   answer: string;
@@ -51,15 +62,216 @@ type offices = {
   phone: string;
   email: string;
 };
-export default function Contact() {
-  const { t } = useTranslation("contact");
+// API type
+type Faq = {
+  notes: string;
+  created_at: string;
+  updated_at: string;
+  title: string;
+  title_uz: string;
+  title_en: string;
+  title_ru: string;
+  description: string;
+  description_uz: string;
+  description_en: string;
+  description_ru: string;
+};
+
+type ApiResponse = {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Faq[];
+};
+interface Field {
+  created_at: string;
+  updated_at: string;
+  title: string | null;
+  title_uz: string | null;
+  title_en: string | null;
+  title_ru: string | null;
+  value: string | null;
+  value_uz: string | null;
+  value_en: string | null;
+  value_ru: string | null;
+}
+
+interface ApiResponse_f {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Field[];
+}
+type ContactInfo = {
+  icon: string;
+  title: string;
+  description: string;
+  contact: string;
+  action: string;
+};
+export default function Contact({ info }: { info: any }) {
+  const { t, i18n } = useTranslation("contact");
+  const lang = i18n.language;
   const services = t("form.services", { returnObjects: true }) as Services[];
   const contactInfo = t("contactInfo", {
     returnObjects: true,
   }) as contactInfo[];
 
   const offices = t("offices.items", { returnObjects: true }) as offices[];
-  const faq = t("faq.items",{returnObjects:true}) as FAQ[];
+  const faq = t("faq.items", { returnObjects: true }) as FAQ[];
+  const [faq_data, setFaq] = useState<Faq[]>([]);
+  const [fields, setFields] = useState<Field[]>([]);
+  const [mergedData, setMergedData] = useState<ContactInfo[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [services_data, setServices] = useState<Service[]>([]);
+  const [formData, setFormData] = useState({
+    first_name: "",
+    last_name: "",
+    phone_number: "",
+    email: "",
+    company: "",
+    message: "",
+    service: "",
+  });
+  //API fetch
+  useEffect(() => {
+    const fetchFaq = async () => {
+      try {
+        const res = await fetch("/api/v1/faqs/");
+        const data: ApiResponse = await res.json();
+        setFaq(data.results);
+      } catch (error) {
+        console.error("Error fetching FAQ:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFaq();
+  }, []);
+  // api service
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const res = await fetch("/api/v1/services/");
+        const data = await res.json();
+        setServices(data.results); // API ichida results bor
+      } catch (error) {
+        console.error("Services fetch error:", error);
+      }
+    };
+    fetchServices();
+  }, []);
+  // API Fields
+  useEffect(() => {
+    const fetchFields = async () => {
+      try {
+        const res = await fetch("/api/v1/fields/");
+        const data: ApiResponse_f = await res.json();
+        const sorted = [...data.results].sort(
+          (a, b) =>
+            new Date(a.created_at).getTime() -
+            new Date(b.created_at).getTime()
+        );
+        setFields(sorted);
+      } catch (err) {
+        console.error("API xatolik:", err);
+      }
+    };
+
+    fetchFields();
+  }, []);
+  // static + api birlashtirish
+  const getLocalizedText1 = (
+    item: any,
+    lang: string,
+    field: "title" | "value"
+  ) => {
+    switch (lang) {
+      case "uz":
+        return item?.[`${field}_uz`] || item?.[field];
+      case "en":
+        return item?.[`${field}_en`] || item?.[field];
+      case "ru":
+        return item?.[`${field}_ru`] || item?.[field];
+      default:
+        return item?.[field];
+    }
+  };
+  useEffect(() => {
+    if (fields.length > 0 && contactInfo.length > 0) {
+      // masalan, contactInfo.length === fields.length bo‘lsa indeks orqali map qilamiz
+      const merged = contactInfo.map((info, index) => {
+        const field = fields.slice(16, 18)[index]; // mos indeksdagi field
+
+        return {
+          ...info,
+          description:
+            getLocalizedText1(field, lang, "title") ?? info.description,
+          contact: getLocalizedText1(field, lang, "value") ?? info.contact,
+          action: getLocalizedText1(field, lang, "value") ?? info.action,
+        };
+      });
+
+      setMergedData(merged);
+    }
+  }, [fields, contactInfo]);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("/api/v1/messages/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error("Failed to send message");
+      alert("Xabaringiz yuborildi!");
+      setFormData({
+        first_name: "",
+        last_name: "",
+        phone_number: "",
+        email: "",
+        company: "",
+        message: "",
+        service: "",
+      });
+    } catch (error) {
+      console.error("Send error:", error);
+      alert("Xabar yuborishda xatolik yuz berdi.");
+    }
+  };
+  // Tilga qarab matnni tanlash helper
+  const getLocalizedText = (
+    item: Faq,
+    field: "title" | "description"
+  ): string => {
+    const lang = i18n.language;
+    if (lang === "uz") return item[`${field}_uz`];
+    if (lang === "en") return item[`${field}_en`];
+    if (lang === "ru") return item[`${field}_ru`];
+    return item[field];
+  };
+  //copy
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+
+  const handleCopy = (text: string, index: number) => {
+    if (text) {
+      navigator.clipboard.writeText(text);
+      setCopiedIndex(index);
+      setTimeout(() => setCopiedIndex(null), 2000);
+    }
+  };
+
+  if (loading) {
+    return <p className="text-center py-10">Loading...</p>;
+  }
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
@@ -89,10 +301,11 @@ export default function Contact() {
       <section className="py-20">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {contactInfo.map((info, index) => {
+            {mergedData.map((info, index) => {
               const Icon = Icons[info.icon] as React.ComponentType<{
                 className?: string;
               }>;
+
               return (
                 <AnimatedSection
                   key={info.title}
@@ -108,12 +321,13 @@ export default function Contact() {
                       <p className="text-sm text-muted-foreground mb-2">
                         {info.description}
                       </p>
-                      <a
-                        href={info.action}
-                        className="text-sm font-medium text-primary hover:underline"
+                      <button
+                        onClick={() => handleCopy(info.contact, index)}
+                        className="flex items-center justify-center gap-2 text-sm font-medium text-primary hover:underline mx-auto"
                       >
-                        {info.contact}
-                      </a>
+                        <Copy className="w-4 h-4" />
+                        {copiedIndex === index ? "Copied!" : info.contact}
+                      </button>
                     </CardContent>
                   </Card>
                 </AnimatedSection>
@@ -122,7 +336,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Form and Map */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div id="form" className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <AnimatedSection animation="slide-left">
               <Card className="border-2 bg-gradient-to-br from-card to-muted/30">
@@ -140,7 +354,9 @@ export default function Contact() {
                         {t("form.fields.firstName")}
                       </Label>
                       <Input
-                        id="firstName"
+                        id="first_name"
+                        value={formData.first_name}
+                        onChange={handleChange}
                         placeholder={t("form.placeholders.firstName")}
                       />
                     </div>
@@ -149,44 +365,61 @@ export default function Contact() {
                         {t("form.fields.lastName")}
                       </Label>
                       <Input
-                        id="lastName"
+                        id="last_name"
+                        value={formData.last_name}
+                        onChange={handleChange}
                         placeholder={t("form.placeholders.lastName")}
                       />
                     </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="phone_number">
+                      {t("form.fields.phone_number")}
+                    </Label>
+                    <Input
+                      id="phone_number"
+                      value={formData.phone_number}
+                      onChange={handleChange}
+                      placeholder="+998 90 123 45 67"
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">{t("form.fields.email")}</Label>
                     <Input
                       id="email"
                       type="email"
-                      placeholder={t("form.placeholders.email")}
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="user@example.com"
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="company">{t("form.fields.company")}</Label>
                     <Input
                       id="company"
+                      value={formData.company}
+                      onChange={handleChange}
                       placeholder={t("form.placeholders.company")}
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="service">{t("form.fields.service")}</Label>
-                    <Select>
+                    <Select
+                      onValueChange={(value) =>
+                        setFormData((prev) => ({ ...prev, service: value }))
+                      }
+                    >
                       <SelectTrigger>
                         <SelectValue
                           placeholder={t("form.placeholders.service")}
                         />
                       </SelectTrigger>
                       <SelectContent>
-                        {services.map((item, index) => {
-                          return (
-                            <div key={index}>
-                              <SelectItem value={item.value}>
-                                {item.label}
-                              </SelectItem>
-                            </div>
-                          );
-                        })}
+                        {services_data.map((item) => (
+                          <SelectItem key={item.id} value={item.id}>
+                            {item.title}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </div>
@@ -194,11 +427,16 @@ export default function Contact() {
                     <Label htmlFor="message">{t("form.fields.message")}</Label>
                     <Textarea
                       id="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       placeholder={t("form.placeholders.message")}
-                      className="min-h-[120px]"
                     />
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90">
+                  <Button
+                    type="submit"
+                    onClick={handleSubmit}
+                    className="w-full bg-gradient-to-r from-primary to-purple-600"
+                  >
                     <Send className="h-4 w-4 mr-2" />
                     {t("form.button")}
                   </Button>
@@ -210,17 +448,11 @@ export default function Contact() {
             <AnimatedSection animation="slide-right">
               <Card className="h-full border-2 bg-gradient-to-br from-card to-muted/30">
                 <CardContent className="p-0 h-full">
-                  <div className="w-full h-full min-h-[500px] bg-gradient-to-br from-primary/20 to-purple-600/20 rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="h-16 w-16 text-primary mx-auto mb-4" />
-                      <h3 className="text-xl font-bold mb-2">
-                        {t("map.title")}
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {t("map.description")}
-                      </p>
-                    </div>
-                  </div>
+                  <MapComponent
+                    height="100%"
+                    position={[40.518741, 68.793750]} 
+                    zoom={15}
+                  />
                 </CardContent>
               </Card>
             </AnimatedSection>
@@ -229,7 +461,7 @@ export default function Contact() {
       </section>
 
       {/* Offices */}
-      <section className="py-20 bg-gradient-to-b from-background to-muted/30">
+      {/* <section className="py-20 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection animation="fade-in" className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -283,7 +515,7 @@ export default function Contact() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <section className="py-20">
@@ -298,7 +530,7 @@ export default function Contact() {
           </AnimatedSection>
 
           <div className="max-w-3xl mx-auto space-y-6">
-            {faq.map((faq, index) => (
+            {faq_data.map((item, index) => (
               <AnimatedSection
                 key={index}
                 animation="slide-up"
@@ -306,8 +538,12 @@ export default function Contact() {
               >
                 <Card className="border-2 hover:border-primary/50 transition-all duration-300 bg-gradient-to-br from-card to-muted/30">
                   <CardContent className="p-6">
-                    <h3 className="font-bold text-lg mb-2">{faq.question}</h3>
-                    <p className="text-muted-foreground">{faq.answer}</p>
+                    <h3 className="font-bold text-lg mb-2">
+                      {getLocalizedText(item, "title")}
+                    </h3>
+                    <p className="text-muted-foreground">
+                      {getLocalizedText(item, "description")}
+                    </p>
                   </CardContent>
                 </Card>
               </AnimatedSection>
@@ -331,7 +567,7 @@ export default function Contact() {
               variant="secondary"
               className="bg-white text-primary hover:bg-white/90"
             >
-              {t("cta.button")}
+              <a href="#form">{t("cta.button")}</a>
             </Button>
           </AnimatedSection>
         </div>

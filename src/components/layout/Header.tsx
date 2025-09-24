@@ -1,41 +1,47 @@
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { ModeToggle } from '@/components/theme/ModeToggle';
-import { LanguageToggle } from '@/components/theme/LanguageToggle';
-import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/theme/ModeToggle";
+import { LanguageToggle } from "@/components/theme/LanguageToggle";
+import { Menu, X } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
-  const {t}=useTranslation();
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
+  const goToPage=()=>{
+    navigate("/contact#form")
+  }
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name:t("nav.home"), path: '/' },
-    { name: t("nav.about"), path: '/about' },
-    { name: t("nav.services"), path: '/services' },
-    { name: t("nav.portfolio"), path: '/portfolio' },
-    { name: t("nav.blog"), path: '/blog' },
-    { name: t("nav.careers"), path: '/careers' },
-    { name: t("nav.contact"), path: '/contact' },
+    { name: t("nav.home"), path: "/" },
+    { name: t("nav.about"), path: "/about" },
+    { name: t("nav.services"), path: "/services" },
+    { name: t("nav.portfolio"), path: "/portfolio" },
+    { name: t("nav.blog"), path: "/blog" },
+    { name: t("nav.careers"), path: "/careers" },
+    { name: t("nav.contact"), path: "/contact" },
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-background/80 backdrop-blur-lg border-b border-border/50' 
-        : 'bg-transparent'
-    }`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/80 backdrop-blur-lg border-b border-border/50"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
@@ -55,7 +61,9 @@ const Header = () => {
                 key={item.name}
                 to={item.path}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === item.path ? 'text-primary' : 'text-muted-foreground'
+                  location.pathname === item.path
+                    ? "text-primary"
+                    : "text-muted-foreground"
                 }`}
               >
                 {item.name}
@@ -67,7 +75,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <LanguageToggle />
             <ModeToggle />
-            <Button className="bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90">
+            <Button className="bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90" onClick={goToPage}>
               {t("actions.getStarted")}
             </Button>
           </div>
@@ -80,7 +88,11 @@ const Header = () => {
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </Button>
           </div>
         </div>
@@ -94,7 +106,9 @@ const Header = () => {
                   key={item.name}
                   to={item.path}
                   className={`block py-2 text-sm font-medium transition-colors hover:text-primary ${
-                    location.pathname === item.path ? 'text-primary' : 'text-muted-foreground'
+                    location.pathname === item.path
+                      ? "text-primary"
+                      : "text-muted-foreground"
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -103,8 +117,8 @@ const Header = () => {
               ))}
               <div className="flex items-center space-x-2 pt-2">
                 <LanguageToggle />
-                <Button className="bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90">
-                  Get Started
+                <Button className="bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90" onClick={goToPage}>
+                  {t("actions.getStarted")}
                 </Button>
               </div>
             </nav>

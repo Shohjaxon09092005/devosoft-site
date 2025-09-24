@@ -23,6 +23,97 @@ import {
 } from "lucide-react";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+
+interface Technology {
+  title: string;
+  title_uz: string | null;
+  title_en: string | null;
+  title_ru: string | null;
+  description: string | null;
+  description_uz: string | null;
+  description_en: string | null;
+  description_ru: string | null;
+}
+
+interface Feature {
+  title: string;
+  title_uz: string | null;
+  title_en: string | null;
+  title_ru: string | null;
+  description: string | null;
+  description_uz: string | null;
+  description_en: string | null;
+  description_ru: string | null;
+}
+
+interface Service {
+  id: string;
+  technologies: Technology[];
+  features: Feature[];
+  notes: string;
+  created_at: string;
+  updated_at: string;
+  icon: string;
+  title: string | null;
+  title_uz: string | null;
+  title_en: string | null;
+  title_ru: string | null;
+  description: string | null;
+  description_uz: string | null;
+  description_en: string | null;
+  description_ru: string | null;
+  timeline: string;
+  starting_price: number;
+}
+
+interface ApiResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Service[];
+}
+interface Field {
+  created_at: string;
+  updated_at: string;
+  title: string | null;
+  title_uz: string | null;
+  title_en: string | null;
+  title_ru: string | null;
+  value: string | null;
+  value_uz: string | null;
+  value_en: string | null;
+  value_ru: string | null;
+}
+
+interface ApiResponse_f {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Field[];
+}
+interface Feedback {
+  notes: string;
+  first_name: string;
+  last_name: string;
+  job_position: string;
+  description: string;
+  rating: number;
+}
+
+interface ApiResponseT {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Feedback[];
+}
+
+interface Testimonial {
+  name: string;
+  role: string;
+  content: string;
+  rating: number;
+}
 // Takomillashtirilgan MagicBentoCard komponenti
 const MagicBentoCard = ({
   children,
@@ -150,64 +241,102 @@ const MagicBentoCard = ({
 
 export default function Home() {
   const { t } = useTranslation();
-  const services = [
-    {
-      icon: Code,
-      title: t("servicesSection.services.software.title"),
-      description: t("servicesSection.services.software.description"),
-      features: t("servicesSection.services.software.features", {
-        returnObjects: true,
-      }) as string[],
-    },
-    {
-      icon: Brain,
-      title: t("servicesSection.services.ai.title"),
-      description: t("servicesSection.services.ai.description"),
-      features: t("servicesSection.services.ai.features", {
-        returnObjects: true,
-      }) as string[],
-    },
-    {
-      icon: Rocket,
-      title: t("servicesSection.services.digital.title"),
-      description: t("servicesSection.services.digital.description"),
-      features: t("servicesSection.services.digital.features", {
-        returnObjects: true,
-      }) as string[],
-    },
-    {
-      icon: Shield,
-      title: t("servicesSection.services.cyber.title"),
-      description: t("servicesSection.services.cyber.description"),
-      features: t("servicesSection.services.cyber.features", {
-        returnObjects: true,
-      }) as string[],
-    },
-    {
-      icon: Zap,
-      title: t("servicesSection.services.performance.title"),
-      description: t("servicesSection.services.performance.description"),
-      features: t("servicesSection.services.performance.features", {
-        returnObjects: true,
-      }) as string[],
-    },
-    {
-      icon: Globe,
-      title: t("servicesSection.services.cloud.title"),
-      description: t("servicesSection.services.cloud.description"),
-      features: t("servicesSection.services.cloud.features", {
-        returnObjects: true,
-      }) as string[],
-    },
-  ];
+  const testimonials = t("testimonials", { returnObjects: true }) as Array<{
+    name: string;
+    role: string;
+    content: string;
+    rating: number;
+  }>;
+  const [services_data, setServices_data] = useState<Service[]>([]);
+  const [fields, setFields] = useState<Field[]>([]);
+  const [testimonials_D, setTestimonials] = useState<Testimonial[]>([]);
+  const [loading, setLoading] = useState(true);
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
+  const navigate=useNavigate()
+  const gotoPage= ()=>{
+    navigate("/contact#form")
+  }
+  const onGoService= ()=>{
+    navigate("/services#service")
+  }
 
- const testimonials = t("testimonials", { returnObjects: true }) as Array<{
-  name: string;
-  role: string;
-  content: string;
-  rating: number;
-}>;
+  // API integration
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const res = await fetch("/api/v1/services/");
+        const data: ApiResponse = await res.json();
+        setServices_data(data.results);
+      } catch (err) {
+        console.error("API xatolik:", err);
+      }
+    };
 
+    fetchServices();
+  }, []);
+
+  // API Fields
+  useEffect(() => {
+    const fetchFields = async () => {
+      try {
+        const res = await fetch("/api/v1/fields/");
+        const data: ApiResponse_f = await res.json();
+        const sorted = [...data.results].sort(
+          (a, b) =>
+            new Date(a.created_at).getTime() -
+            new Date(b.created_at).getTime()
+        );
+        setFields(sorted);
+      } catch (err) {
+        console.error("API xatolik:", err);
+      }
+    };
+
+    fetchFields();
+  }, []);
+  console.log(fields);
+  function truncate(text: string, length: number) {
+    return text.length > length ? text.slice(0, length) + "..." : text;
+  }
+  const getLocalizedText = (item: Field, field: "title" | "value") => {
+    switch (lang) {
+      case "uz":
+        return item[`${field}_uz` as keyof Field];
+      case "ru":
+        return item[`${field}_ru` as keyof Field];
+      case "en":
+        return item[`${field}_en` as keyof Field];
+      default:
+        return item[field]; // default
+    }
+  };
+
+  //API feedbacks
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const res = await fetch("/api/v1/feedbacks/");
+        if (!res.ok) throw new Error("API dan ma’lumot olib bo‘lmadi");
+        const data: ApiResponseT = await res.json();
+
+        const mapped: Testimonial[] = data.results.map((item) => ({
+          name: `${item.first_name} ${item.last_name}`,
+          role: item.job_position,
+          content: item.notes || item.description,
+          rating: item.rating,
+        }));
+
+        setTestimonials(mapped);
+      } catch (err) {
+        console.error("Xatolik:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -231,88 +360,92 @@ export default function Home() {
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <AnimatedSection
-                key={service.title}
-                animation="slide-up"
-                delay={index * 100}
-              >
-                <MagicBentoCard delay={index * 100}>
-                  <Card className="group h-full border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 bg-gradient-to-br from-card to-muted/30 backdrop-blur-sm">
-                    <CardHeader>
-                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <service.icon className="h-6 w-6 text-white" />
-                      </div>
-                      <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                        {service.title}
-                      </CardTitle>
-                      <CardDescription className="text-muted-foreground">
-                        {service.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2">
-                        {service.features.map((feature) => (
-                          <li
-                            key={feature}
-                            className="flex items-center text-sm text-muted-foreground"
-                          >
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                      <Button
-                        variant="ghost"
-                        className="w-full mt-4 group-hover:bg-primary/10"
-                      >
-                        {t("servicesSection.button")}
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </MagicBentoCard>
-              </AnimatedSection>
-            ))}
+            {services_data.map((service, index) => {
+              return (
+                <AnimatedSection
+                  key={service.id}
+                  animation="slide-up"
+                  delay={index * 100}
+                >
+                  <MagicBentoCard delay={index * 100}>
+                    <Card className="group h-full border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 bg-gradient-to-br from-card to-muted/30 backdrop-blur-sm">
+                      <CardHeader>
+                        <div className="w-12 h-12 bg-gradient-to-r from-primary to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                          <img
+                            className="h-12 w-12 object-contain"
+                            src={service.icon}
+                            alt="icon"
+                          />
+                        </div>
+                        <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                          {lang === "uz"
+                            ? truncate(service.title_uz, 100)
+                            : lang === "en"
+                            ? truncate(service.title_en, 100)
+                            : service.title_ru}
+                        </CardTitle>
+                        <CardDescription className="text-muted-foreground">
+                          {lang === "uz"
+                            ? truncate(service.description_uz, 100)
+                            : lang === "en"
+                            ? truncate(service.description_en, 100)
+                            : truncate(service.description_ru, 100)}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-2">
+                          {service.features.map((feature) => (
+                            <li
+                              key={feature.title}
+                              className="flex items-center text-sm text-muted-foreground"
+                            >
+                              <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3" />
+                              {lang === "uz"
+                                ? feature.title_uz
+                                : lang === "en"
+                                ? feature.title_en
+                                : feature.title_ru}
+                            </li>
+                          ))}
+                        </ul>
+                        <Button
+                        onClick={onGoService}
+                          variant="ghost"
+                          className="w-full mt-4 group-hover:bg-primary/10"
+                        >
+                          {t("servicesSection.button")}
+                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </MagicBentoCard>
+                </AnimatedSection>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
       <section className="py-20 bg-gradient-to-r from-primary/10 via-purple-500/10 to-primary/10">
-        <div className="container mx-auto px-4 lg:px-8">
+        <div
+          style={{ margin: "0 auto" }}
+          className="container mx-auto px-4 lg:px-8"
+        >
           <AnimatedSection animation="fade-in">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div className="space-y-2">
-                <div className="text-4xl md:text-5xl font-bold text-primary">
-                  500+
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {t("statsSection.projects")}
-                </div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-4xl md:text-5xl font-bold text-primary">
-                  150+
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {t("statsSection.clients")}
-                </div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-4xl md:text-5xl font-bold text-primary">
-                  98%
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {t("statsSection.success")}
-                </div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-4xl md:text-5xl font-bold text-primary">
-                  24/7
-                </div>
-                <div className="text-sm text-muted-foreground">{t("statsSection.support")}</div>
-              </div>
+              {fields.slice(0, 4).map((item, index) => {
+                return (
+                  <div key={index} className="space-y-2">
+                    <div className="text-4xl md:text-5xl font-bold text-primary">
+                      {getLocalizedText(item, "value")}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      {getLocalizedText(item, "title")}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </AnimatedSection>
         </div>
@@ -336,48 +469,54 @@ export default function Home() {
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial: any, index: number) => (
-              
-              <AnimatedSection
-                key={testimonial.name}
-                delay={index * 200}
-                duration={1200}
-              >
-                <Card className="h-full bg-gradient-to-br from-card to-muted/30 backdrop-blur-sm border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
-                  <CardContent className="p-6">
-                    <div className="flex items-center mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="h-4 w-4 fill-yellow-400 text-yellow-400"
-                        />
-                      ))}
-                    </div>
-                    <blockquote className="text-muted-foreground mb-6 italic">
-                      "{testimonial.content}"
-                    </blockquote>
-                    <div className="flex items-center">
-                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-purple-600 rounded-full flex items-center justify-center mr-4">
-                        <span className="text-white font-semibold text-sm">
-                          {testimonial.name
-                            .split(" ")
-                            .map((n) => n[0])
-                            .join("")}
-                        </span>
+          {loading ? (
+            <p className="text-center text-muted-foreground">Yuklanmoqda...</p>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {testimonials_D.map((testimonial, index) => (
+                <AnimatedSection
+                  key={index}
+                  delay={index * 200}
+                  duration={1200}
+                >
+                  <Card className="h-full bg-gradient-to-br from-card to-muted/30 backdrop-blur-sm border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
+                    <CardContent className="p-6">
+                      <div className="flex items-center mb-4">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                          />
+                        ))}
                       </div>
-                      <div>
-                        <div className="font-semibold">{testimonial.name}</div>
-                        <div className="text-sm text-muted-foreground">
-                          {testimonial.role}
+                      <blockquote className="text-muted-foreground mb-6 italic">
+                        "{testimonial.content}"
+                      </blockquote>
+                      <div className="flex items-center">
+                        <div className="w-12 h-12 bg-gradient-to-r from-primary to-purple-600 rounded-full flex items-center justify-center mr-4">
+                          <span className="text-white font-semibold text-sm">
+                            {testimonial.name
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")}
+                              
+                          </span>
+                        </div>
+                        <div>
+                          <div className="font-semibold">
+                            {testimonial.name}
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            {testimonial.role}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            ))}
-          </div>
+                    </CardContent>
+                  </Card>
+                </AnimatedSection>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -393,14 +532,16 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
+              onClick={gotoPage}
                 size="lg"
                 variant="secondary"
                 className="bg-white text-primary hover:bg-white/90"
               >
-                {t("ctaSection.start")}
+               {t("ctaSection.start")} 
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button
+              onClick={gotoPage}
                 size="lg"
                 variant="outline"
                 className="border-white text-white hover:bg-white/10"

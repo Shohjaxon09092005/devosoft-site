@@ -140,3 +140,16 @@ html {
   background: hsl(var(--primary) / 0.8);
 }
 
+.leaflet-container {
+  background: #f8fafc;
+  font-family: inherit;
+}
+
+.leaflet-popup-content {
+  margin: 12px;
+  font-size: 14px;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+}

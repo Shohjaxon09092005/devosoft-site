@@ -14,7 +14,7 @@
   },
   "filter": {
     "label": "Filter by:",
-    "categories": ["All", "Web Development", "AI/ML", "Mobile Apps", "Cloud Solutions", "E-commerce"]
+    "categories":"All"
   },
   "projects": [
     {

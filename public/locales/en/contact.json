@@ -43,6 +43,7 @@
       "lastName": "Last Name",
       "email": "Email",
       "company": "Company",
+      "phone_number": "Phone number",
       "service": "Service Interested In",
       "message": "Message"
     },
@@ -70,7 +71,7 @@
     "icon": "MapPin"
   },
   "offices": {
-    "title": "Our Global Offices",
+    "title": "Our address",
     "description": "We have offices around the world to better serve our clients and provide local support.",
     "items": [
       {

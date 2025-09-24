@@ -120,6 +120,21 @@
       "title": "Mos Vakansiya Topmadingizmi?",
       "description": "Biz har doim iste’dodli insonlarni qidiramiz. Rezyumeyingizni yuboring va qanday hissa qo‘shmoqchi ekaningizni bizga ayting.",
       "button": "Rezyumeni Yuborish"
+    },
+    "form":{
+      "full_name":"Ism Familiya",
+      "full_nameP":"Ism Familiya",
+      "Email":"Email",
+      "EmailP":"email@example.com",
+      "phone_number":"Telefon raqami",
+      "phone_numberP":"+9989 90 123 45 67",
+      "Resume":"Resume",
+      "description":"Qo‘shimcha ma’lumot",
+      "descriptionP":"O‘zingiz haqida qisqacha yozing...",
+      "dialog":"Quyidagi formani to‘ldirib, rezyumeyingizni yuboring.",
+      "out_btn":"Bekor qilish",
+      "start_btn":"Yuborish",
+      "file_btn":"Rezyumeni tanlash"
     }
   }
 }
